@@ -42,14 +42,7 @@ namespace WebUI
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            
-            services.AddCors(opt => { 
-                opt.AddPolicy("CorsPolicy", builder => 
-                    builder.WithOrigins("http://localhost:4200")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()); 
-            });
-            
+
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -69,29 +62,25 @@ namespace WebUI
             }
 
             app.UseErrorHandler();
-
             app.UseHttpsRedirection();
             app.UseHsts();
             app.UseRouting();
-            app.UseSerilogRequestLogging();
-
             app.UseCookiePolicy();
+            
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSpaStaticFiles();
-            app.UseCors("CorsPolicy");
-
+            app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            // app.UseSpa(spa =>
-            // {
-            //     spa.Options.SourcePath = "ClientApp";
-            //     if (env.EnvironmentName == "dev")
-            //     {
-            //         // spa.UseAngularCliServer(npmScript: "start");
-            //         spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-            //     }
-            // });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+                if (env.EnvironmentName == "dev")
+                {
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                }
+            });
         }
         
         private void RegisteredServicesPage(IApplicationBuilder app)
