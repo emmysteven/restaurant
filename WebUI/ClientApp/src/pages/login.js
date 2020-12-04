@@ -25,12 +25,14 @@ export const Login = () => {
       userService
         .login(email, password)
         .then((response) => {
-          setUserData({
-            token: response.token,
-            user: response.user
-          })
-          setLoading(false)
-          history.push('/')
+          if (response){
+            setUserData({
+              token: response.token,
+              user: response.user
+            })
+            setLoading(false)
+            history.push('/')
+          }
         })
     }
   }

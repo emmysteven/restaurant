@@ -19,22 +19,34 @@ import jwt_decode from 'jwt-decode';
         }
         return userData
       })
+      .catch(error => {
+        if (error.response) {
+          console.log(error.response.data.error);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+      })
    }
 
-   register(firstName, lastName, email, phoneNumber, password) {
-     return http.post('/user/register', {
-       firstName,
-       lastName,
-       email,
-       phoneNumber,
-       password
-     }).then(res => {
-       console.log(res.status)
+   register({firstName, lastName, email, phoneNumber, password}) {
+     return http.post('/user/register', { firstName, lastName, email, phoneNumber, password })
+       .then(response => {
+         console.log(response)
+         return response
        })
-       .catch(err => {
-         console.debug(err.message)
-       }
-     )
+       .catch(error => {
+         if (error.response) {
+           console.log(error.response.data.error);
+         } else if (error.request) {
+           console.log(error.request);
+         } else {
+           console.log('Error', error.message);
+         }
+       })
    }
 
    logout() {

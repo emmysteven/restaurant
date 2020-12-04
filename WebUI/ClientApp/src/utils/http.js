@@ -1,9 +1,11 @@
 import axios from 'axios'
 
 export const http = axios.create({
-  baseURL: 'https://localhost:3000/api/',
+  baseURL: 'api',
+  crossdomain: true,
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json; charset=utf-8',
+    'Cache-Control': 'no-cache'
   }
 })
 

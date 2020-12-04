@@ -6,9 +6,6 @@ import { userService } from "../services";
 
 export function Register () {
   // const { setUserData } = useContext(UserContext)
-  const [submitted, setSubmitted] = useState(false)
-  const history = useHistory()
-
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -16,6 +13,8 @@ export function Register () {
     phoneNumber: '',
     password: ''
   })
+  const [submitted, setSubmitted] = useState(false)
+  const history = useHistory()
 
   function handleChange (e) {
     const { name, value } = e.target
