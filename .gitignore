@@ -345,6 +345,5 @@ healthchecksdb
 *.db
 WebUI/appsettings.json
 .vscode/
-Infrastructure/Migrations/
 VSIXCore/
 .eslintcache
