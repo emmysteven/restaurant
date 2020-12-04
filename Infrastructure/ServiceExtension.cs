@@ -1,4 +1,6 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Common.Interfaces;
@@ -54,17 +56,17 @@ namespace Infrastructure
             services.AddSingleton(x => x.GetRequiredService<IOptions<JWTSettings>>().Value);
             services.AddSingleton(x => x.GetRequiredService<IOptions<MailSettings>>().Value);
 
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-            .AddCookie(x =>
-            {
-                x.Cookie.HttpOnly = true;
-                x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                x.Cookie.SameSite = SameSiteMode.Lax;
-            });
+            // services.AddAuthentication(x =>
+            // {
+            //     x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //     x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            // })
+            // .AddCookie(x =>
+            // {
+            //     x.Cookie.HttpOnly = true;
+            //     x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            //     x.Cookie.SameSite = SameSiteMode.Lax;
+            // });
 
             services.AddAuthentication(x =>
             {
@@ -95,6 +97,7 @@ namespace Infrastructure
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWTSettings:Key"]))
                 };
+                
                 x.Events = new JwtBearerEvents
                 {
                     OnMessageReceived = context =>
