@@ -82,7 +82,7 @@ namespace WebUI.Controllers
         //     return Ok(await Mediator.Send(new DeleteUserCommand(query)));
         // }
         
-        private object SetTokenCookie(string token)
+        private void SetTokenCookie(string token)
         {
             var cookieOptions = new CookieOptions
             {
@@ -90,7 +90,6 @@ namespace WebUI.Controllers
                 Expires = DateTime.UtcNow.AddHours(7)
             };
             Response.Cookies.Append("refreshToken", token, cookieOptions);
-            return null;
         }
 
         private string GenerateIpAddress()
