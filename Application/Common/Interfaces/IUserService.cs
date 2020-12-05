@@ -11,7 +11,7 @@ namespace Application.Common.Interfaces
         Task<IEnumerable<AuthResponse>> GetAllAsync();
         Task<Response<string>> RegisterAsync(RegisterRequest request, string origin);
         Task<AuthResponse> AuthenticateAsync(AuthRequest request, string ipAddress);
-        Task<Response<string>> VerifyEmailAsync(string userId, string code);
+        Task<Response<string>> VerifyEmailAsync(int id, string token);
         Task ForgotPasswordAsync(ForgotPasswordRequest request, string origin);
         Task<Response<string>> ResetPasswordAsync(ResetPasswordRequest request);
     }

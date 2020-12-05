@@ -49,9 +49,9 @@ namespace WebUI.Controllers
         }
 
         [HttpGet("verify-email")]
-        public async Task<IActionResult> VerifyEmail([FromQuery] string userId, string token)
+        public async Task<IActionResult> VerifyEmail([FromQuery] int id, string token)
         {
-            return Ok(await _userService.VerifyEmailAsync(userId, token));
+            return Ok(await _userService.VerifyEmailAsync(id, token));
         }
 
         [HttpPost("forgot-password")]

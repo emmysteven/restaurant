@@ -109,10 +109,10 @@ namespace Infrastructure.Services
             };
         }
 
-        public async Task<Response<string>> VerifyEmailAsync(string userId, string token)
+        public async Task<Response<string>> VerifyEmailAsync(int id, string token)
         {
             var user = await _userRepository.FindAsync(x =>
-                x.Email == userId &&
+                x.Id == id &&
                 x.VerificationToken == token);
 
             if (user == null) throw new ApiException("Verification failed");
@@ -220,7 +220,7 @@ namespace Infrastructure.Services
             string message;
             if (!string.IsNullOrEmpty(origin))
             {
-                var verifyUrl = $"{origin}/account/verify-email?token={user.VerificationToken}";
+                var verifyUrl = $"{origin}/api/user/verify-email?id={user.Id}&token={user.VerificationToken}";
                 message = $@"<p>Please click the below link to verify your email address:</p>
                              <p><a href=""{verifyUrl}"">{verifyUrl}</a></p>";
             }
