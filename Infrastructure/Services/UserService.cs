@@ -111,11 +111,11 @@ namespace Infrastructure.Services
 
         public async Task<Response<string>> VerifyEmailAsync(int id, string token)
         {
-            var user = await _userRepository.FindAsync(x =>
-                x.Id == id &&
-                x.VerificationToken == token);
+            var user = await _userRepository.FindAsync(x => x.Id == id);
+            Console.WriteLine(user.IsVerified);
 
             if (user == null) throw new ApiException("Verification failed");
+            if (user.IsVerified) return new Response<string>("This account is already verified.");
 
             user.Verified = DateTime.UtcNow;
             user.VerificationToken = null;
