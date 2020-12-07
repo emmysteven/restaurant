@@ -43,7 +43,7 @@ export function Register () {
       <h4 className='card-header'>Register</h4>
       <div className='card-body'>
 
-        { error ? <div className="error mb-4"> {error} </div> : '' }
+        { error ? <div className="alert alert-danger mb-4"> {error} </div> : '' }
 
         <form name='form' onSubmit={handleSubmit}>
           <div className='form-group'>

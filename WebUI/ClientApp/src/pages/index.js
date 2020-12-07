@@ -1,7 +1,7 @@
 export * from './register'
 export * from './contact'
 export * from './about'
-export * from './login'
+export * from './login/login'
 export * from './error'
 export * from './home'
 

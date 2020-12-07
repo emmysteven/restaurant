@@ -13,22 +13,16 @@ import jwt_decode from 'jwt-decode';
           localStorage.setItem('token', this.data.token)
           localStorage.setItem('refreshToken', this.data.refreshToken)
         }
-        const userData = {
-          token: this.data.token,
-          user: keysToCamel(jwt_decode(this.data.token))
-        }
-        return userData
+        response.data.user = keysToCamel(jwt_decode(this.data.token))
+        return response
       })
       .catch(error => {
-        if (error.response) {
-          return error.response.data.error
-        } else if (error.request) {
-          // The request was made but no response was received
-          return error.request
-        } else {
-          return error.message
-          // Something happened in setting up the request that triggered an Error
-        }
+        if (error.response) return error.response
+        // The request was made but no response was received
+        if (error.request) return error.request
+        // Something happened in setting up the request that triggered an Error
+        else return error.message
+
       })
    }
 
