@@ -1,9 +1,9 @@
-import {http, keysToCamel} from '../utils'
+import { http, keysToCamel } from '../utils/index'
 import jwt_decode from 'jwt-decode';
 
  class UserService {
    isForbidden = false
-   data = ''
+   data = { token: '', refreshToken: '' }
 
    login(email, password) {
     return http.post('/user/login', { email, password })
@@ -21,13 +21,13 @@ import jwt_decode from 'jwt-decode';
       })
       .catch(error => {
         if (error.response) {
-          console.log(error.response.data.error);
+          return error.response.data.error
         } else if (error.request) {
           // The request was made but no response was received
-          console.log(error.request);
+          return error.request
         } else {
+          return error.message
           // Something happened in setting up the request that triggered an Error
-          console.log('Error', error.message);
         }
       })
    }
@@ -35,17 +35,12 @@ import jwt_decode from 'jwt-decode';
    register({firstName, lastName, email, phoneNumber, password}) {
      return http.post('/user/register', { firstName, lastName, email, phoneNumber, password })
        .then(response => {
-         console.log(response)
          return response
        })
        .catch(error => {
-         if (error.response) {
-           console.log(error.response.data.error);
-         } else if (error.request) {
-           console.log(error.request);
-         } else {
-           console.log('Error', error.message);
-         }
+         if (error.response) return error.response
+         if (error.request) return error.request
+         else return error.message
        })
    }
 

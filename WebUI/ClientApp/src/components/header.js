@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
-import { UserContext } from '../utils'
-import { userService } from '../services'
+import { UserContext } from '../utils/index'
+import { userService } from '../services/index'
 
 export const Header = () => {
   const { userData, setUserData } = useContext(UserContext)

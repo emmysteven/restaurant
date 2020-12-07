@@ -1,11 +1,9 @@
-import React, {useContext, useState} from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-// import { UserContext } from '../utils'
-import { userService } from "../services";
+import { userService } from "../services/index";
 
 
 export function Register () {
-  // const { setUserData } = useContext(UserContext)
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -13,8 +11,10 @@ export function Register () {
     phoneNumber: '',
     password: ''
   })
+  const [error, setError] = useState(null)
   const [submitted, setSubmitted] = useState(false)
   const history = useHistory()
+
 
   function handleChange (e) {
     const { name, value } = e.target
@@ -27,11 +27,14 @@ export function Register () {
     setSubmitted(true)
     if (user.firstName && user.lastName && user.email && user.phoneNumber && user.password) {
       userService
-        .register(user).then(() => {
-        setSubmitted(false)
-        history.push('/login')
-      })
-      console.log(user)
+        .register(user)
+        .then((response) => {
+          if (response.data.error){
+            setSubmitted(false)
+            return setError(response.data.error)
+          }
+          history.push('/login')
+        })
     }
   }
 
@@ -39,6 +42,9 @@ export function Register () {
     <div className='card'>
       <h4 className='card-header'>Register</h4>
       <div className='card-body'>
+
+        { error ? <div className="error mb-4"> {error} </div> : '' }
+
         <form name='form' onSubmit={handleSubmit}>
           <div className='form-group'>
             <label>First Name</label>

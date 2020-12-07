@@ -95,6 +95,8 @@ namespace Infrastructure.Services
             if (user == null || !BC.Verify(request.Password, user.Password))
                 throw new ApiException("Your account or password is incorrect");
             
+            // Console.WriteLine(user.IsVerified);
+            // TODO: add the feature to check if user is verified from frontend
             var jwtToken = GenerateJwt(request);
             var refreshToken = GenerateRefreshToken(ipAddress).Token;
             
@@ -168,7 +170,8 @@ namespace Infrastructure.Services
                 new Claim("FirstName", user.Result.FirstName),
                 new Claim("LastName", user.Result.LastName),
                 new Claim("Email", user.Result.Email),
-                new Claim("Role", user.Result.Role.ToString())
+                new Claim("Role", user.Result.Role.ToString()),
+                new Claim("IsVerified", user.Result.IsVerified.ToString())
                 // new Claim("ip", ipAddress)
             };
             

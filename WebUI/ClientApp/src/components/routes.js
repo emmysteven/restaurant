@@ -1,5 +1,5 @@
 import {Route, Switch } from 'react-router-dom'
-import { Home, About, Contact, Error, Login, Register } from '../pages'
+import { Home, About, Contact, Error, Login, Register } from '../pages/index'
 import './layout.css'
 
 export const Routes = (

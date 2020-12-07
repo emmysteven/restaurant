@@ -343,6 +343,8 @@ ASALocalRun/
 healthchecksdb
 
 *.db
+*.db-shm
+*.db-wal
 WebUI/appsettings.json
 .vscode/
 VSIXCore/
