@@ -46,7 +46,7 @@ import jwt_decode from 'jwt-decode';
    isLoggedIn = (fn) => {
      let token = localStorage.getItem('token')
      if (token === null || token === undefined || token === '') {
-       return console.log('please login')
+       return
      }
      const user = keysToCamel(jwt_decode(token))
      return fn({token, user})

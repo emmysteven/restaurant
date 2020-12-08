@@ -18,36 +18,37 @@ namespace WebUI
         private IServiceCollection _services;
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
-        
+
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
         }
-        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration);
             services.AddApplication();
             services.AddControllers().AddNewtonsoftJson();
+            services.AddCors();
 
             services.AddRouting(options =>
             {
                 options.LowercaseUrls = true;
                 options.LowercaseQueryStrings = true;
             });
-            
+
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "ClientApp/build";
             });
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddHttpContextAccessor();
-            
+
             _services = services;
         }
 
@@ -66,7 +67,12 @@ namespace WebUI
             app.UseHsts();
             app.UseRouting();
             app.UseCookiePolicy();
-            
+
+            app.UseCors(builder =>
+                builder.WithOrigins("http://localhost:4200")
+                       .AllowAnyHeader()
+                );
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSpaStaticFiles();
@@ -76,13 +82,13 @@ namespace WebUI
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
-                if (env.EnvironmentName == "dev")
-                {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                }
+                // if (env.EnvironmentName == "dev")
+                // {
+                //     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                // }
             });
         }
-        
+
         private void RegisteredServicesPage(IApplicationBuilder app)
         {
             app.Map("/services", builder => builder.Run(async context =>
