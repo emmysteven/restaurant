@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <AnalysisLevel>Latest</AnalysisLevel>
+        <SpaRoot>ClientApp\</SpaRoot>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,6 +29,13 @@
       <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
       <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
       <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)**" />
+        <None Remove="$(SpaRoot)**" />
+        <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     </ItemGroup>
 
     <ItemGroup>
