@@ -42,39 +42,41 @@ export const Login = () => {
   }
 
   return (
-    <div className='card'>
-      <h4 className='card-header'>Login</h4>
-      <div className='card-body'>
+    <div className='col-md-3 offset-md-5'>
+      <div className='card'>
+        <h4 className='card-header'>Login</h4>
+        <div className='card-body'>
 
-        { error ? <div className="alert alert-danger mb-4"> {error} </div> : '' }
+          { error ? <div className="alert alert-danger mb-4"> {error} </div> : '' }
 
-        <form name='form' onSubmit={handleSubmit} autoComplete='off'>
-          <div className='form-group'>
-            <label htmlFor='Email'>Email</label>
-            <input
-              type='text' name='email' value={email} onChange={handleChange}
-              className={'form-control' + (submitted && !email ? ' is-invalid' : '')}
-            />
-            {submitted && !email && <div className='invalid-feedback'>Email is required</div>}
-          </div>
+          <form name='form' onSubmit={handleSubmit} autoComplete='off'>
+            <div className='form-group'>
+              <label htmlFor='Email'>Email</label>
+              <input
+                type='text' name='email' value={email} onChange={handleChange}
+                className={'form-control' + (submitted && !email ? ' is-invalid' : '')}
+              />
+              {submitted && !email && <div className='invalid-feedback'>Email is required</div>}
+            </div>
 
-          <div className='form-group'>
-            <label htmlFor='Password'>Password</label>
-            <input
-              type='password' name='password' value={password} onChange={handleChange}
-              className={'form-control' + (submitted && !password ? ' is-invalid' : '')}
-            />
-            {submitted && !password && <div className='invalid-feedback'>Password is required</div>}
-          </div>
+            <div className='form-group'>
+              <label htmlFor='Password'>Password</label>
+              <input
+                type='password' name='password' value={password} onChange={handleChange}
+                className={'form-control' + (submitted && !password ? ' is-invalid' : '')}
+              />
+              {submitted && !password && <div className='invalid-feedback'>Password is required</div>}
+            </div>
 
-          <div className='form-group'>
-            <button className='btn btn-primary'>
-              {loading && <span className='spinner-border spinner-border-sm mr-1' />}
-              Login
-            </button>
-            <Link to='/register' className='btn btn-link'>Register</Link>
-          </div>
-        </form>
+            <div className='form-group'>
+              <button className='btn btn-primary'>
+                {loading && <span className='spinner-border spinner-border-sm mr-1' />}
+                Login
+              </button>
+              <Link to='/register' className='btn btn-link'>Register</Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
