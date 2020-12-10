@@ -23,8 +23,6 @@ export const Home = () => {
     )
   }, [])
 
-  // console.log(shops)
-
   const list = shops.map(item => (
       <div className='col-md-3 offset-md-0'  key={item.id}>
         <div className='card'>
