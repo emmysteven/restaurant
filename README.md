@@ -7,16 +7,17 @@
 [![GitHub issues](https://img.shields.io/github/issues/emmysteven/restaurant.svg)](https://github.com/emmysteven/restaurant/issues)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=restuarant)
 ![GitHub stars](https://img.shields.io/github/stars/emmysteven/restaurant)
-[![Twitter Follow](https://img.shields.io/twitter/follow/emmysteven_?style=social&label=follow)](https://twitter.com/emmysteven_)
+![GitHub watchers](https://img.shields.io/github/watchers/emmysteven/restaurant)
+[![Twitter Follow](https://img.shields.io/twitter/follow/emmysteven_?style=flat&label=follow)](https://twitter.com/emmysteven_)
 
 <br/>
 
 An Implementation of Clean Architecture with .NET 5
 With this Open-Source Codebase, you will get access to the world of Loosely-Coupled and Inverted-Dependency Architecture in .NET 5
 
-## Upcoming Release 
+## Upcoming Release
 
-### v1.1-release 
+### v1.1-release
 
 Read the [Changelog file](https://github.com/emmysteven/restaurant/blob/master/CHANGELOG.md) to see the new changes.
 
@@ -35,7 +36,7 @@ Follow these steps to get started
 - [Create an ethereal mail account](https://ethereal.email/)
 - Use your credentials to fill up the EmailSettings section in appsettings.json
 - Install redis on your local machine
-4. Run <code>npm install</code> in the WebUI/ClientApp directory 
+4. Run <code>npm install</code> in the WebUI/ClientApp directory
 5. Run the following commands on Terminal in the WebUI project's directory.
 - dotnet restore
 - dotnet ef database update --context DataContext
@@ -50,7 +51,7 @@ Does it really make sense to get to a restaurant and you told that they are full
 This is the exact Problem that I intend to solve with this Full-Fledged .NET 5 project. It follows various principles of Clean Architecture.
 
 The primary goal is to create a restaurant booking project, that is well documented along with the steps taken to build this Solution from Scratch.
-- Demonstrate clean architecture in .NET 5 
+- Demonstrate clean architecture in .NET 5
 - This is not a proof of concept
 - Implementation that is ready for production
 - Integrate the most essential libraries and packages
