@@ -23,7 +23,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "restaurant",
-      "applicationUrl": "https://localhost:3000;http://localhost:3001",
+      "applicationUrl": "https://[::]:443;http://[::]:80",
       "environmentVariables": {
         "Environment": "dev"
       }

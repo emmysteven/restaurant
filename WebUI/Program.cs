@@ -47,8 +47,8 @@ namespace WebUI
                     webBuilder
                         .UseConfiguration(Configuration)
                         .UseSerilog()
-                        .UseStartup<Startup>()
-                        .UseUrls("https://localhost:3000/;http://localhost:3001");
+                        .UseStartup<Startup>();
+                    // .UseUrls("https://localhost:3000/;http://localhost:3001");
                 });
         }
     }
