@@ -3,10 +3,8 @@ ARG VERSION=5.0-alpine
 FROM mcr.microsoft.com/dotnet/aspnet:$VERSION AS base
 WORKDIR /dist
 EXPOSE 80
-RUN apk add --update nodejs npm
 
 FROM mcr.microsoft.com/dotnet/sdk:$VERSION AS build
-RUN apk add --update nodejs npm
 WORKDIR /src
 COPY Domain/Domain.csproj /Domain/
 COPY Application/Application.csproj /Application/
