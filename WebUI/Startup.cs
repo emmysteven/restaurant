@@ -1,10 +1,8 @@
-using System.Text;
 using Application;
 using Application.Common.Interfaces;
 using Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -39,11 +37,6 @@ namespace WebUI
                 options.LowercaseQueryStrings = true;
             });
 
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/build";
-            });
-
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -59,7 +52,6 @@ namespace WebUI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
-                RegisteredServicesPage(app);
             }
 
             app.UseErrorHandler();
@@ -75,40 +67,8 @@ namespace WebUI
 
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSpaStaticFiles();
             app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
-                // if (env.EnvironmentName == "dev")
-                // {
-                //     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                // }
-            });
-        }
-
-        private void RegisteredServicesPage(IApplicationBuilder app)
-        {
-            app.Map("/services", builder => builder.Run(async context =>
-            {
-                var sb = new StringBuilder();
-                sb.Append("<h1>Registered Services</h1>");
-                sb.Append("<table><thead>");
-                sb.Append("<tr><th>Type</th><th>Lifetime</th><th>Instance</th></tr>");
-                sb.Append("</thead><tbody>");
-                foreach (var svc in _services)
-                {
-                    sb.Append("<tr>");
-                    sb.Append($"<td>{svc.ServiceType.FullName}</td>");
-                    sb.Append($"<td>{svc.Lifetime}</td>");
-                    sb.Append($"<td>{svc.ImplementationType?.FullName}</td>");
-                    sb.Append("</tr>");
-                }
-                sb.Append("</tbody></table>");
-                await context.Response.WriteAsync(sb.ToString());
-            }));
         }
     }
 }
