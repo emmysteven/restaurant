@@ -13,7 +13,6 @@ namespace WebUI
 {
     public class Startup
     {
-        private IServiceCollection _services;
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
@@ -41,8 +40,6 @@ namespace WebUI
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddHttpContextAccessor();
-
-            _services = services;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
