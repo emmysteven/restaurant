@@ -59,11 +59,7 @@ namespace WebUI
             app.UseHsts();
             app.UseRouting();
             app.UseCookiePolicy();
-
-            app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200")
-                       .AllowAnyHeader()
-                );
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();
