@@ -19,13 +19,23 @@
       }
     },
     
-    "WebUI": {
+    "Development": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "restaurant",
-      "applicationUrl": "https://[::]:443;http://[::]:80",
+      "launchUrl": "api",
+      "applicationUrl": "https://localhost:3000;http://localhost:3001",
       "environmentVariables": {
         "Environment": "dev"
+      }
+    },
+
+    "Production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api",
+      "applicationUrl": "https://localhost:3000;http://localhost:3001",
+      "environmentVariables": {
+        "Environment": "prod"
       }
     }
   }
