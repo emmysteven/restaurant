@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AnalysisLevel>Latest</AnalysisLevel>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
+      <PackageReference Include="MailKit" Version="2.9.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    </ItemGroup>
+
+</Project>
