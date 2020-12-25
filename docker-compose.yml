@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  webapp:
+    image: restaurant 
+    container_name: "Restaurant"
+    ports:
+      - "80:80"
