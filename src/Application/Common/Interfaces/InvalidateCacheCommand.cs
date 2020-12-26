@@ -1,6 +1,6 @@
-using Application.Settings;
+using Restaurant.Application.Settings;
 
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface ICacheInvalidatorPostProcessor
     {

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Application.DTOs.Email;
+using Restaurant.Application.DTOs.Email;
 
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface IEmailService
     {

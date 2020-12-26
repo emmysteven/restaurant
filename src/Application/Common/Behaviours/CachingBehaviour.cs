@@ -2,14 +2,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Attributes;
-using Application.Common.Interfaces;
-using Application.Settings;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using Restaurant.Application.Common.Attributes;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Settings;
 
-namespace Application.Common.Behaviours
+namespace Restaurant.Application.Common.Behaviours
 {
     // public class CachingBehavior
     // {

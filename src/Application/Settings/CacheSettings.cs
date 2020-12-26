@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.Settings
+namespace Restaurant.Application.Settings
 {
     public class CacheSettings
     {

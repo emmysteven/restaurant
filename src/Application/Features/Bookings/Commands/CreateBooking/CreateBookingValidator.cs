@@ -1,4 +1,4 @@
-namespace Application.Features.Bookings.Commands.CreateBooking
+namespace Restaurant.Application.Features.Bookings.Commands.CreateBooking
 {
     public class CreateBookingValidator
     {

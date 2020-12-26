@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface ICacheService
     {

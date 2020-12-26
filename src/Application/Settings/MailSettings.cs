@@ -1,4 +1,4 @@
-namespace Domain.Settings
+namespace Restaurant.Application.Settings
 {
     public class MailSettings
     {

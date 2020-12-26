@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.Common.Attributes
+namespace Restaurant.Application.Common.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class CacheAttribute : Attribute

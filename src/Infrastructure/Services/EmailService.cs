@@ -1,14 +1,14 @@
 using System;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Application.DTOs.Email;
-using Domain.Settings;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Logging;
 using MimeKit;
+using Restaurant.Application.Common.Exceptions;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.DTOs.Email;
+using Restaurant.Application.Settings;
 
-namespace Infrastructure.Services
+namespace Restaurant.Infrastructure.Services
 {
     public class EmailService : IEmailService
     {

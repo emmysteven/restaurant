@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
 using FluentValidation;
+using Restaurant.Application.Common.Interfaces;
 
-namespace Application.Features.Shops.Commands.CreateShop
+namespace Restaurant.Application.Features.Shops.Commands.CreateShop
 {
     public class CreateShopValidator : AbstractValidator<CreateShopCommand>
     {

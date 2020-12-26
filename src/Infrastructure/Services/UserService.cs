@@ -5,21 +5,20 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Application.Common.Wrappers;
-using Application.DTOs.Account;
-using Application.DTOs.Email;
-using Application.Settings;
 using AutoMapper;
-using Domain.Common;
-using Domain.Entities;
-using Domain.Enums;
-using Domain.Settings;
 using Microsoft.IdentityModel.Tokens;
+using Restaurant.Application.Common.Exceptions;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Common.Wrappers;
+using Restaurant.Application.DTOs.Account;
+using Restaurant.Application.DTOs.Email;
+using Restaurant.Application.Settings;
+using Restaurant.Domain.Common;
+using Restaurant.Domain.Entities;
+using Restaurant.Domain.Enums;
 using BC = BCrypt.Net.BCrypt;
 
-namespace Infrastructure.Services
+namespace Restaurant.Infrastructure.Services
 {
     public class UserService : IUserService
     {

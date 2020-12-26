@@ -1,15 +1,15 @@
 using System.Threading.Tasks;
-using Application.Common.Attributes;
-using Application.Features.Shops.Commands.CreateShop;
-using Application.Features.Shops.Commands.DeleteShop;
-using Application.Features.Shops.Commands.UpdateShop;
-using Application.Features.Shops.Queries.GetAllShops;
-using Application.Features.Shops.Queries.GetShopById;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Restaurant.Application.Common.Attributes;
+using Restaurant.Application.Features.Shops.Commands.CreateShop;
+using Restaurant.Application.Features.Shops.Commands.DeleteShop;
+using Restaurant.Application.Features.Shops.Commands.UpdateShop;
+using Restaurant.Application.Features.Shops.Queries.GetAllShops;
+using Restaurant.Application.Features.Shops.Queries.GetShopById;
 
-namespace WebUI.Controllers
+namespace Restaurant.WebUI.Controllers
 {
     [Authorize, Cache(120)]
     public class ShopController : BaseController

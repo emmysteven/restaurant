@@ -1,8 +1,8 @@
 using System;
-using Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Restaurant.Application.Common.Interfaces;
 
-namespace WebUI.Services
+namespace Restaurant.WebUI.Services
 {
     public class CurrentUserService: ICurrentUserService
     {

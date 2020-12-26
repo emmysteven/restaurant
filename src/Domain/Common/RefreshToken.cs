@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using Domain.Entities;
+using Restaurant.Domain.Entities;
 
-namespace Domain.Common
+namespace Restaurant.Domain.Common
 {
     public class RefreshToken
     {

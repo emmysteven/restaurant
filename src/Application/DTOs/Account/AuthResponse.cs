@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Application.DTOs.Account
+namespace Restaurant.Application.DTOs.Account
 {
     public class AuthResponse
     {

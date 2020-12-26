@@ -1,4 +1,4 @@
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {

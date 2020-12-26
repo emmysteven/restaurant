@@ -1,6 +1,6 @@
-using Domain.Entities;
+using Restaurant.Domain.Entities;
 
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {

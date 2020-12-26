@@ -1,11 +1,11 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Domain.Common;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Domain.Common;
+using Restaurant.Domain.Entities;
 
-namespace Infrastructure.Contexts
+namespace Restaurant.Infrastructure.Contexts
 {
     public class DataContext : DbContext
     {

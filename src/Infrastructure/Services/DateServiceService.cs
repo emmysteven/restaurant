@@ -1,7 +1,7 @@
 using System;
-using Application.Common.Interfaces;
+using Restaurant.Application.Common.Interfaces;
 
-namespace Infrastructure.Services
+namespace Restaurant.Infrastructure.Services
 {
     public class DateServiceService : IDateService
     {

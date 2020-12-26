@@ -3,6 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <AnalysisLevel>Latest</AnalysisLevel>
+        <RootNamespace>Restaurant.WebUI</RootNamespace>
+        <AssemblyName>Restaurant.WebUI</AssemblyName>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(RunConfiguration)' == 'Production' " />

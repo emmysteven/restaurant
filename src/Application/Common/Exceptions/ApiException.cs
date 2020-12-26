@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace Application.Common.Exceptions
+namespace Restaurant.Application.Common.Exceptions
 {
     public class ApiException : Exception
     {

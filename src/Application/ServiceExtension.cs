@@ -1,12 +1,12 @@
 using System.Reflection;
-using Application.Common.Behaviours;
-using Application.Settings;
 using AutoMapper;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
+using Restaurant.Application.Common.Behaviours;
+using Restaurant.Application.Settings;
 
-namespace Application
+namespace Restaurant.Application
 {
     public static class ServiceExtension
     {

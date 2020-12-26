@@ -1,12 +1,12 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Restaurant.Application.Common.Exceptions;
 
-namespace WebUI.Handlers
+namespace Restaurant.WebUI.Handlers
 {
     public class ErrorHandler
     {

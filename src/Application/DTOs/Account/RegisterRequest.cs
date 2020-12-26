@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using Domain.Enums;
+using Restaurant.Domain.Enums;
 
-namespace Application.DTOs.Account
+namespace Restaurant.Application.DTOs.Account
 {
     public class RegisterRequest
     {

@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 
-namespace Infrastructure.Helpers
+namespace Restaurant.Infrastructure.Helpers
 {
     public class IpHelper
     {

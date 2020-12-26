@@ -1,8 +1,8 @@
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Restaurant.Domain.Entities;
 
-namespace Infrastructure.Configurations
+namespace Restaurant.Infrastructure.Configurations
 { 
     public class ShopConfiguration : IEntityTypeConfiguration<Shop>
     {

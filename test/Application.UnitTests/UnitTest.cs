@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 
-namespace Application.UnitTests
+namespace Restaurant.Application.UnitTests
 {
     public class UnitTest
     {

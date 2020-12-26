@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Domain.Common;
-using Domain.Enums;
+using Restaurant.Domain.Common;
+using Restaurant.Domain.Enums;
 
-namespace Domain.Entities
+namespace Restaurant.Domain.Entities
 {
     public class User
     {

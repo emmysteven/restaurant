@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using FluentValidation.Results;
 
-namespace Application.Common.Exceptions
+namespace Restaurant.Application.Common.Exceptions
 {
     public class ValidationException : Exception
     {

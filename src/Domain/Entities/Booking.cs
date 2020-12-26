@@ -1,6 +1,6 @@
-using Domain.Common;
+using Restaurant.Domain.Common;
 
-namespace Domain.Entities
+namespace Restaurant.Domain.Entities
 {
     public class Booking : AuditableEntity
     {

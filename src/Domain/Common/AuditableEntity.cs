@@ -1,6 +1,6 @@
 using System;
 
-namespace Domain.Common
+namespace Restaurant.Domain.Common
 {
     public class AuditableEntity
     {

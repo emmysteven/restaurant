@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace WebUI
+namespace Restaurant.WebUI
 {
     public class  Program
     {

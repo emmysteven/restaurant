@@ -1,10 +1,10 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using Restaurant.Application.Common.Interfaces;
 
-namespace Application.Common.Behaviours
+namespace Restaurant.Application.Common.Behaviours
 {
     public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
     {

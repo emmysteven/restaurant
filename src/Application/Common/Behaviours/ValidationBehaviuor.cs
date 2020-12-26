@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using ValidationException = Application.Common.Exceptions.ValidationException;
+using ValidationException = Restaurant.Application.Common.Exceptions.ValidationException;
 
-namespace Application.Common.Behaviours
+namespace Restaurant.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

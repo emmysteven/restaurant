@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Domain.UnitTests
+namespace Restaurant.Domain.UnitTests
 {
     public class UnitTest
     {

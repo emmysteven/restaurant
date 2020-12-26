@@ -3,6 +3,7 @@ ARG VERSION=5.0-alpine
 FROM mcr.microsoft.com/dotnet/aspnet:$VERSION AS base
 WORKDIR /dist
 EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:$VERSION AS build
 WORKDIR /src

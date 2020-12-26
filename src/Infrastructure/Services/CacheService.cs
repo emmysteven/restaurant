@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Restaurant.Application.Common.Interfaces;
 
-namespace Infrastructure.Services
+namespace Restaurant.Infrastructure.Services
 {
     public class CacheService : ICacheService
     {

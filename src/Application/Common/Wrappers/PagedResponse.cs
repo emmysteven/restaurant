@@ -1,4 +1,4 @@
-namespace Application.Common.Wrappers
+namespace Restaurant.Application.Common.Wrappers
 {
     public class PagedResponse<T> : Response<T>
     {

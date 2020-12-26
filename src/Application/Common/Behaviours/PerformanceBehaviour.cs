@@ -1,11 +1,11 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Restaurant.Application.Common.Interfaces;
 
-namespace Application.Common.Behaviours
+namespace Restaurant.Application.Common.Behaviours
 {
     public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

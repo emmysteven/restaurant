@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Common.Wrappers;
-using Application.DTOs.Account;
+using Restaurant.Application.Common.Wrappers;
+using Restaurant.Application.DTOs.Account;
 
-namespace Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces
 {
     public interface IUserService
     {

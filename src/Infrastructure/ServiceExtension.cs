@@ -1,21 +1,19 @@
 using System;
 using System.Text;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Application.Settings;
-using Domain.Settings;
-// using Hangfire;
-using Infrastructure.Contexts;
-using Infrastructure.Repositories;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Settings;
+using Restaurant.Infrastructure.Contexts;
+using Restaurant.Infrastructure.Repositories;
+using Restaurant.Infrastructure.Services; // using Hangfire;
 
-namespace Infrastructure
+namespace Restaurant.Infrastructure
 {
     public static class ServiceExtension
     {

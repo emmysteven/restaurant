@@ -1,15 +1,15 @@
-using Application;
-using Application.Common.Interfaces;
-using Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Restaurant.Application;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Infrastructure;
+using Restaurant.WebUI.Handlers;
+using Restaurant.WebUI.Services;
 using Serilog;
-using WebUI.Handlers;
-using WebUI.Services;
 
-namespace WebUI
+namespace Restaurant.WebUI
 {
     public class Startup
     {

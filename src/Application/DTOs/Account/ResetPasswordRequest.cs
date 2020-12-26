@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Application.DTOs.Account
+namespace Restaurant.Application.DTOs.Account
 {
     public class ResetPasswordRequest
     {

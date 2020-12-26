@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Attributes;
-using Application.Common.Interfaces;
-using Application.Common.Wrappers;
 using AutoMapper;
 using MediatR;
+using Restaurant.Application.Common.Attributes;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Common.Wrappers;
 
-namespace Application.Features.Shops.Queries.GetAllShops
+namespace Restaurant.Application.Features.Shops.Queries.GetAllShops
 {
     [Cache]
     public class GetAllShopsQuery : IRequest<PagedResponse<IEnumerable<GetAllShopsVm>>>

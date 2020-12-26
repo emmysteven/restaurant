@@ -1,4 +1,4 @@
-namespace Application.DTOs.Email
+namespace Restaurant.Application.DTOs.Email
 {
     public class EmailRequest
     {

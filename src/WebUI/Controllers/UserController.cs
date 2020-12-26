@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Application.DTOs.Account;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.DTOs.Account;
 
-namespace WebUI.Controllers
+namespace Restaurant.WebUI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

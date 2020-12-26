@@ -1,4 +1,4 @@
-namespace Application.Parameters
+namespace Restaurant.Application.Parameters
 {
     public class RequestParameter
     {

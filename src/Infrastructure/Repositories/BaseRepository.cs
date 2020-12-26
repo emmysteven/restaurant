@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Infrastructure.Contexts;
 
-namespace Infrastructure.Repositories
+namespace Restaurant.Infrastructure.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

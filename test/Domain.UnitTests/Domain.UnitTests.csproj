@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-
+    <RootNamespace>Restaurant.Domain.UnitTests</RootNamespace>
+    <AssemblyName>Restaurant.Domain.UnitTests</AssemblyName>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

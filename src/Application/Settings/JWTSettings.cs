@@ -1,4 +1,4 @@
-namespace Application.Settings
+namespace Restaurant.Application.Settings
 {
     public class JWTSettings
     {

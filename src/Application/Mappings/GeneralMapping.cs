@@ -1,11 +1,11 @@
-using Application.DTOs.Account;
-using Application.Features.Shops.Commands.CreateShop;
-using Application.Features.Shops.Commands.UpdateShop;
-using Application.Features.Shops.Queries.GetAllShops;
 using AutoMapper;
-using Domain.Entities;
+using Restaurant.Application.DTOs.Account;
+using Restaurant.Application.Features.Shops.Commands.CreateShop;
+using Restaurant.Application.Features.Shops.Commands.UpdateShop;
+using Restaurant.Application.Features.Shops.Queries.GetAllShops;
+using Restaurant.Domain.Entities;
 
-namespace Application.Mappings
+namespace Restaurant.Application.Mappings
 {
     public class GeneralMapping : Profile
     {

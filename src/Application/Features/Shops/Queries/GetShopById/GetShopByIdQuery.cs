@@ -1,11 +1,11 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Domain.Entities;
 using MediatR;
+using Restaurant.Application.Common.Exceptions;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Domain.Entities;
 
-namespace Application.Features.Shops.Queries.GetShopById
+namespace Restaurant.Application.Features.Shops.Queries.GetShopById
 {
     public class GetShopByIdQuery : IRequest<Shop>
     {

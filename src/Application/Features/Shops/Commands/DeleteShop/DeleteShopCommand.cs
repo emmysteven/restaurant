@@ -1,10 +1,10 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Domain.Entities;
 using MediatR;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Domain.Entities;
 
-namespace Application.Features.Shops.Commands.DeleteShop
+namespace Restaurant.Application.Features.Shops.Commands.DeleteShop
 {
     public class DeleteShopCommand : IRequest<Shop>
     {

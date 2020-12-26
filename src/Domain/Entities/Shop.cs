@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Domain.Common;
+using Restaurant.Domain.Common;
 
-namespace Domain.Entities
+namespace Restaurant.Domain.Entities
 {
     public class Shop : AuditableEntity
     {
@@ -9,7 +9,6 @@ namespace Domain.Entities
         {
             Bookings = new HashSet<Booking>();
         }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Website { get; set; }

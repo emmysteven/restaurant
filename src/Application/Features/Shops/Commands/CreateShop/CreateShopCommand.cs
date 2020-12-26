@@ -1,12 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Application.Common.Wrappers;
 using AutoMapper;
-using Domain.Entities;
 using MediatR;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Common.Wrappers;
+using Restaurant.Domain.Entities;
 
-namespace Application.Features.Shops.Commands.CreateShop
+namespace Restaurant.Application.Features.Shops.Commands.CreateShop
 {
     public class CreateShopCommand : IRequest<Response<int>>
     {

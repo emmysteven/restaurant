@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Domain.Entities;
-using Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Restaurant.Application.Common.Interfaces;
+using Restaurant.Domain.Entities;
+using Restaurant.Infrastructure.Contexts;
 
-namespace Infrastructure.Repositories
+namespace Restaurant.Infrastructure.Repositories
 {
     public class ShopRepository : BaseRepository<Shop>, IShopRepository
     {
