@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentValidation.Results;
 
 namespace Restaurant.Application.Common.Exceptions
@@ -8,17 +9,17 @@ namespace Restaurant.Application.Common.Exceptions
     {
         public ValidationException() : base("One or more validation failures have occurred.")
         {
-            Errors = new List<string>();
+            Errors = new Dictionary<string, string[]>();
         }
-        public List<string> Errors { get; }
+
         public ValidationException(IEnumerable<ValidationFailure> failures)
             : this()
         {
-            foreach (var failure in failures)
-            {
-                Errors.Add(failure.ErrorMessage);
-            }
+            Errors = failures
+                .GroupBy(e => e.PropertyName, e => e.ErrorMessage)
+                .ToDictionary(failureGroup => failureGroup.Key, failureGroup => failureGroup.ToArray());
         }
         
+        public IDictionary<string, string[]> Errors { get; }
     }
 }
