@@ -1,6 +1,6 @@
 # Restaurant
 
-![.NET Core](https://github.com/iammukeshm/CleanArchitecture.WebApi/workflows/.NET%20Core/badge.svg?branch=master)
+![.NET](https://github.com/emmysteven/restaurant/workflows/.NET/badge.svg?branch=main)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://gitHub.com/emmysteven/restuarant/graphs/commit-activity)
 ![made-with-.NET](https://img.shields.io/badge/Made%20with-.NET-1f425f.svg)
 [![GitHub forks](https://img.shields.io/github/forks/emmysteven/restaurant.svg)](https://github.com/emmysteven/restuarant/network)
