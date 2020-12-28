@@ -19,7 +19,7 @@ With this Open-Source Codebase, you will get access to the world of Loosely-Coup
 
 ### v1.1-release
 
-Read the [Changelog file](https://github.com/emmysteven/restaurant/blob/master/CHANGELOG.md) to see the new changes.
+Read the [Changelog file](https://github.com/emmysteven/restaurant/blob/main/CHANGELOG.md) to see the new changes.
 
 Clone this repository to get the latest unreleased version.
 
