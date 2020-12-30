@@ -35,6 +35,11 @@ namespace Restaurant.WebUI
                 options.LowercaseUrls = true;
                 options.LowercaseQueryStrings = true;
             });
+            
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/build";
+            });
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
@@ -50,10 +55,15 @@ namespace Restaurant.WebUI
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
 
             app.UseErrorHandler();
             app.UseHttpsRedirection();
-            app.UseHsts();
+            app.UseSpaStaticFiles();
             app.UseRouting();
             app.UseCookiePolicy();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader());
@@ -62,6 +72,8 @@ namespace Restaurant.WebUI
             app.UseAuthorization();
             app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            app.UseSpa(spa => spa.Options.SourcePath = "ClientApp");
         }
     }
 }
