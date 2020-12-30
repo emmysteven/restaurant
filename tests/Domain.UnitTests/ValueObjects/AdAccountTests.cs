@@ -1,7 +1,7 @@
-using Xunit;
 using FluentAssertions;
 using Restaurant.Domain.Exceptions;
 using Restaurant.Domain.ValueObjects;
+using Xunit;
 
 namespace Restaurant.Domain.UnitTests.ValueObjects
 {
