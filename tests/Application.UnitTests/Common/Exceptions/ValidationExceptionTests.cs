@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using FluentValidation.Results;
-using Xunit;
-using Restaurant.Application.Common.Exceptions;
 using FluentAssertions;
+using FluentValidation.Results;
+using Restaurant.Application.Common.Exceptions;
+using Xunit;
 
 namespace Restaurant.Application.UnitTests.Common.Exceptions
 {
