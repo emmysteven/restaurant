@@ -7,4 +7,8 @@
 **/.github
 **/.vscode
 **/tests
+**/media
 **/node_modules
+.DS_Store
+.gitattributes
+*.md
