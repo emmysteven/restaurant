@@ -1,11 +1,15 @@
+
+![Restaurant_Logo](https://github.com/emmysteven/restaurant/blob/main/media/restaurant.png)
+
+<div align="center">
+	<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/emmysteven/restaurant/.NET">
+	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/emmysteven/restaurant">
+	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/emmysteven/restaurant">
+	<img alt="GitHub stars" src="https://img.shields.io/github/stars/emmysteven/restaurant">
+	<img alt="visitors" src="https://visitor-badge.laobi.icu/badge?page_id=restuarant">
+</div>
+
 # Restaurant
-
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/emmysteven/restaurant/.NET)
-![GitHub repo size](https://img.shields.io/github/repo-size/emmysteven/restaurant)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/emmysteven/restaurant)
-![GitHub stars](https://img.shields.io/github/stars/emmysteven/restaurant)
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=restuarant)
-
 <br/>
 
 An Implementation of Clean Architecture with .NET 5
