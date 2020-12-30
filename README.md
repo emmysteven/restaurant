@@ -1,14 +1,10 @@
 # Restaurant
 
-![.NET](https://github.com/emmysteven/restaurant/workflows/.NET/badge.svg?branch=main)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://gitHub.com/emmysteven/restuarant/graphs/commit-activity)
-![made-with-.NET](https://img.shields.io/badge/Made%20with-.NET-1f425f.svg)
-[![GitHub forks](https://img.shields.io/github/forks/emmysteven/restaurant.svg)](https://github.com/emmysteven/restuarant/network)
-[![GitHub issues](https://img.shields.io/github/issues/emmysteven/restaurant.svg)](https://github.com/emmysteven/restaurant/issues)
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=restuarant)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/emmysteven/restaurant/.NET)
+![GitHub repo size](https://img.shields.io/github/repo-size/emmysteven/restaurant)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/emmysteven/restaurant)
 ![GitHub stars](https://img.shields.io/github/stars/emmysteven/restaurant)
-![GitHub watchers](https://img.shields.io/github/watchers/emmysteven/restaurant)
-[![Twitter Follow](https://img.shields.io/twitter/follow/emmysteven_?style=flat&label=follow)](https://twitter.com/emmysteven_)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=restuarant)
 
 <br/>
 
