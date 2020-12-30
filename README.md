@@ -36,7 +36,7 @@ Follow these steps to get started
 - [Create an ethereal mail account](https://ethereal.email/)
 - Use your credentials to fill up the EmailSettings section in appsettings.json
 - Install redis on your local machine
-4. Run <code>npm install</code> in the WebUI/ClientApp directory
+4. Run <code>npm install</code> in the src/WebUI/ClientApp directory
 5. Run the following commands on Terminal in the WebUI project's directory.
 - dotnet restore
 - dotnet ef database update --context DataContext
@@ -92,7 +92,7 @@ If you are feeling really generous, send me ETH: <code>0x9F4942911f2406E5897669D
 ![alt text](https://pbs.twimg.com/media/EnmjcrjW4AEvm-e?format=jpg&name=900x900)
 
 ## Prerequisites
-- JetBrains Rider 2020.1.4 & above | Visual Studio 2019 Community and above
+- JetBrains Rider 2020.3.1 & above | Visual Studio 2019 Community and above
 - .NET Core 5.0 SDK and above
 - Basic Understanding of Clean Architecture
 - I Recommend that you read [Onion Architecture In ASP.NET Core With CQRS – Detailed](https://www.codewithmukesh.com/blog/onion-architecture-in-aspnet-core/) article to understand this project much better. This project is just an Advanced Version of the mentioned article.
