@@ -6,5 +6,5 @@
 **/.idea
 **/.github
 **/.vscode
-**/Tests
+**/tests
 **/node_modules
