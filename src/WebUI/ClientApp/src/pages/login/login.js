@@ -36,7 +36,7 @@ export const Login = () => {
             user: response.data.user
           })
           setLoading(false)
-          history.push('/')
+          history.push('/home')
         })
     }
   }
