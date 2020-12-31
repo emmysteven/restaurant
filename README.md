@@ -7,6 +7,10 @@
 	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/emmysteven/restaurant">
 	<img alt="GitHub stars" src="https://img.shields.io/github/stars/emmysteven/restaurant">
 	<img alt="visitors" src="https://visitor-badge.laobi.icu/badge?page_id=restuarant">
+	<a href="https://twitter.com/intent/tweet?hashtags=restaurant,foodie,dotnet,oss&text=🥘+Restuarant.+A+booking+platform+for+those+who+love+eating+outdoors&url=https%3A%2F%2Fgithub.com%2Femmysteven%2Frestuarant&via=emmysteven_">
+		<img alt="Twitter" src="https://img.shields.io/twitter/url/http/shields.io.svg?style=flat&logo=twitter">
+	</a>
+
 </div>
 
 # Restaurant
