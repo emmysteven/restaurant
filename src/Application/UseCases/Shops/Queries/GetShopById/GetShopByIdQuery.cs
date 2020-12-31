@@ -5,7 +5,7 @@ using Restaurant.Application.Common.Exceptions;
 using Restaurant.Application.Common.Interfaces;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Features.Shops.Queries.GetShopById
+namespace Restaurant.Application.UseCases.Shops.Queries.GetShopById
 {
     public class GetShopByIdQuery : IRequest<Shop>
     {

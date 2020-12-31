@@ -6,7 +6,7 @@ using MediatR;
 using Restaurant.Application.Common.Interfaces;
 using Restaurant.Application.Common.Wrappers;
 
-namespace Restaurant.Application.Features.Shops.Queries.GetAllShops
+namespace Restaurant.Application.UseCases.Shops.Queries.GetAllShops
 {
     public class GetAllShopsQuery : IRequest<PagedResponse<IEnumerable<GetAllShopsVm>>>
     {

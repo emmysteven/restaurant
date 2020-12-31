@@ -4,7 +4,7 @@ using MediatR;
 using Restaurant.Application.Common.Interfaces;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Features.Shops.Commands.DeleteShop
+namespace Restaurant.Application.UseCases.Shops.Commands.DeleteShop
 {
     public class DeleteShopCommand : IRequest<Shop>
     {

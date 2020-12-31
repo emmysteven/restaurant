@@ -1,4 +1,4 @@
-namespace Restaurant.Application.Features.Shops.Queries.GetAllShops
+namespace Restaurant.Application.UseCases.Shops.Queries.GetAllShops
 {
     public class GetAllShopsVm
     {

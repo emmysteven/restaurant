@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using Restaurant.Application.Common.Interfaces;
 
-namespace Restaurant.Application.Features.Shops.Commands.CreateShop
+namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
 {
     public class CreateShopValidator : AbstractValidator<CreateShopCommand>
     {

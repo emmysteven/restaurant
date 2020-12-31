@@ -2,15 +2,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using Restaurant.Application.Common.Exceptions;
 using Restaurant.Application.Common.Interfaces;
+using Restaurant.Application.Common.Wrappers;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Features.Shops.Commands.UpdateShop
+namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
 {
-    public class UpdateShopCommand : IRequest<Shop>
+    public class CreateShopCommand : IRequest<Response<int>>
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Website { get; set; }
         public string Email { get; set; }
@@ -20,24 +19,22 @@ namespace Restaurant.Application.Features.Shops.Commands.UpdateShop
         public string Address { get; set; }
     }
     
-    public class UpdateShopHandler : IRequestHandler<UpdateShopCommand, Shop>
+    public class CreateShopHandler : IRequestHandler<CreateShopCommand, Response<int>>
     {
         private readonly IMapper _mapper;
         private readonly IShopRepository _shopRepository;
 
-        public UpdateShopHandler(IShopRepository shopRepository, IMapper mapper)
+        public CreateShopHandler(IShopRepository shopRepository, IMapper mapper)
         {
             _shopRepository = shopRepository;
             _mapper = mapper;
         }
 
-        public async Task<Shop> Handle(UpdateShopCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CreateShopCommand request, CancellationToken cancellationToken)
         {
-            var isShop = await _shopRepository.GetByIdAsync(request.Id);
-            if (isShop == null) throw new ApiException("Product Not Found.");
-            var shop = _mapper.Map<Shop>(request);
-
-            return await _shopRepository.UpdateAsync(shop);
+            var vendor = _mapper.Map<Shop>(request);
+            await _shopRepository.CreateAsync(vendor);
+            return new Response<int>(vendor.Id);
         }
     }
 }

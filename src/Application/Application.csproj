@@ -21,10 +21,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Bookings\Commands\DeleteBooking" />
-      <Folder Include="Features\Bookings\Commands\UpdateBooking" />
-      <Folder Include="Features\Bookings\Queries\GetAllBookings" />
-      <Folder Include="Features\Bookings\Queries\GetBookingById" />
+      <Folder Include="UseCases\Bookings\Commands\DeleteBooking" />
+      <Folder Include="UseCases\Bookings\Commands\UpdateBooking" />
+      <Folder Include="UseCases\Bookings\Queries\GetAllBookings" />
+      <Folder Include="UseCases\Bookings\Queries\GetBookingById" />
     </ItemGroup>
 
 </Project>

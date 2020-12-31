@@ -2,14 +2,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
+using Restaurant.Application.Common.Exceptions;
 using Restaurant.Application.Common.Interfaces;
-using Restaurant.Application.Common.Wrappers;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Features.Shops.Commands.CreateShop
+namespace Restaurant.Application.UseCases.Shops.Commands.UpdateShop
 {
-    public class CreateShopCommand : IRequest<Response<int>>
+    public class UpdateShopCommand : IRequest<Shop>
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Website { get; set; }
         public string Email { get; set; }
@@ -19,22 +20,24 @@ namespace Restaurant.Application.Features.Shops.Commands.CreateShop
         public string Address { get; set; }
     }
     
-    public class CreateShopHandler : IRequestHandler<CreateShopCommand, Response<int>>
+    public class UpdateShopHandler : IRequestHandler<UpdateShopCommand, Shop>
     {
         private readonly IMapper _mapper;
         private readonly IShopRepository _shopRepository;
 
-        public CreateShopHandler(IShopRepository shopRepository, IMapper mapper)
+        public UpdateShopHandler(IShopRepository shopRepository, IMapper mapper)
         {
             _shopRepository = shopRepository;
             _mapper = mapper;
         }
 
-        public async Task<Response<int>> Handle(CreateShopCommand request, CancellationToken cancellationToken)
+        public async Task<Shop> Handle(UpdateShopCommand request, CancellationToken cancellationToken)
         {
-            var vendor = _mapper.Map<Shop>(request);
-            await _shopRepository.CreateAsync(vendor);
-            return new Response<int>(vendor.Id);
+            var isShop = await _shopRepository.GetByIdAsync(request.Id);
+            if (isShop == null) throw new ApiException("Product Not Found.");
+            var shop = _mapper.Map<Shop>(request);
+
+            return await _shopRepository.UpdateAsync(shop);
         }
     }
 }

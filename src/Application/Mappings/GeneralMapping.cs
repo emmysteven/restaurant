@@ -1,8 +1,8 @@
 using AutoMapper;
 using Restaurant.Application.DTOs.Account;
-using Restaurant.Application.Features.Shops.Commands.CreateShop;
-using Restaurant.Application.Features.Shops.Commands.UpdateShop;
-using Restaurant.Application.Features.Shops.Queries.GetAllShops;
+using Restaurant.Application.UseCases.Shops.Commands.CreateShop;
+using Restaurant.Application.UseCases.Shops.Commands.UpdateShop;
+using Restaurant.Application.UseCases.Shops.Queries.GetAllShops;
 using Restaurant.Domain.Entities;
 
 namespace Restaurant.Application.Mappings
