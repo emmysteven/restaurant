@@ -2,11 +2,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Restaurant.Application.Features.Shops.Commands.CreateShop;
-using Restaurant.Application.Features.Shops.Commands.DeleteShop;
-using Restaurant.Application.Features.Shops.Commands.UpdateShop;
-using Restaurant.Application.Features.Shops.Queries.GetAllShops;
-using Restaurant.Application.Features.Shops.Queries.GetShopById;
+using Restaurant.Application.UseCases.Shops.Commands.CreateShop;
+using Restaurant.Application.UseCases.Shops.Commands.DeleteShop;
+using Restaurant.Application.UseCases.Shops.Commands.UpdateShop;
+using Restaurant.Application.UseCases.Shops.Queries.GetAllShops;
+using Restaurant.Application.UseCases.Shops.Queries.GetShopById;
 
 namespace Restaurant.WebUI.Controllers
 {
