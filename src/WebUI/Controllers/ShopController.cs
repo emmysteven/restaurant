@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Restaurant.Application.Common.Attributes;
 using Restaurant.Application.Features.Shops.Commands.CreateShop;
 using Restaurant.Application.Features.Shops.Commands.DeleteShop;
 using Restaurant.Application.Features.Shops.Commands.UpdateShop;
@@ -11,7 +10,7 @@ using Restaurant.Application.Features.Shops.Queries.GetShopById;
 
 namespace Restaurant.WebUI.Controllers
 {
-    [Authorize, Cache(120)]
+    [Authorize]
     public class ShopController : BaseController
     {
         public ShopController(ILogger<BaseController> logger) : base(logger) { }

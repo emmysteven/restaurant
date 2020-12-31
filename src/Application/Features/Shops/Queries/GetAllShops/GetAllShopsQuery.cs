@@ -3,13 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using Restaurant.Application.Common.Attributes;
 using Restaurant.Application.Common.Interfaces;
 using Restaurant.Application.Common.Wrappers;
 
 namespace Restaurant.Application.Features.Shops.Queries.GetAllShops
 {
-    [Cache]
     public class GetAllShopsQuery : IRequest<PagedResponse<IEnumerable<GetAllShopsVm>>>
     {
         public int PageNumber { get; set; }
