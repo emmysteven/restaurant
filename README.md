@@ -2,6 +2,7 @@
 ![Restaurant_Logo](https://github.com/emmysteven/restaurant/blob/main/media/restaurant.png)
 
 <div align="center">
+	<img alt="status" src="https://img.shields.io/badge/Status-developing-brightgree">
 	<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/emmysteven/restaurant/.NET">
 	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/emmysteven/restaurant">
 	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/emmysteven/restaurant">
