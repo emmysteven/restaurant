@@ -17,6 +17,8 @@ namespace Restaurant.Domain.Entities
         public string State { get; set; }
         public string LocalGovernmentArea { get; set; }
         public string Address { get; set; }
+        
+        public string ImageName { get; set; }
         public ICollection<Booking> Bookings { get; }
     }
 }
