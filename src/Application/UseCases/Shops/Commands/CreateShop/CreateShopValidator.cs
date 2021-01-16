@@ -52,6 +52,10 @@ namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("{PropertyName} can not be empty")
                 .NotNull();
+            
+            RuleFor(t => t.ImageFile.Length).ExclusiveBetween(0, 2000000)
+                .WithMessage($"File length should be greater than 0 and less than {2000000 / 1024 / 1024} MB")
+                .When(t => t.ImageFile != null);
         }
 
         private async Task<bool> IsUniqueEmail(string email, CancellationToken cancellationToken)
