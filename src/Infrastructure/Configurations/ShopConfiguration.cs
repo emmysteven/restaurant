@@ -19,6 +19,7 @@ namespace Restaurant.Infrastructure.Configurations
             builder.Property(s => s.LocalGovernmentArea).HasMaxLength(20).IsRequired();
 
             builder.Property(s => s.Address).HasMaxLength(50).IsRequired();
+            builder.Property(s => s.ImageName);
             builder.Property(s => s.Created).ValueGeneratedOnAdd();
             // builder.Property(s => s.Updated).ValueGeneratedOnAddOrUpdate();
 
