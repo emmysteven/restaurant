@@ -11,7 +11,8 @@ export function AddShop () {
     phoneNumber: '',
     state: '',
     localGovernmentArea: '',
-    address: ''
+    address: '',
+    imageFile: ''
   })
   const [error, setError] = useState(null)
   const [submitted, setSubmitted] = useState(false)
@@ -33,7 +34,8 @@ export function AddShop () {
       shop.phoneNumber &&
       shop.state &&
       shop.localGovernmentArea &&
-      shop.address
+      shop.address &&
+      shop.imageFile
     ) {
       shopService
         .addShop(shop)
@@ -140,6 +142,18 @@ export function AddShop () {
                 className={'form-control' + (submitted && !shop.address ? ' is-invalid' : '')}
               />
               {submitted && !shop.address && <div className='invalid-feedback'>Address is required</div>}
+            </div>
+
+            <div className='form-group'>
+              <label>ImageUpload</label>
+              <input
+                type='file'
+                name='imageFile'
+                value={shop.imageFile}
+                onChange={handleChange}
+                className={'form-control' + (submitted && !shop.imageFile ? ' is-invalid' : '')}
+              />
+              {submitted && !shop.imageFile && <div className='invalid-feedback'>Picture is required</div>}
             </div>
 
             <div className='form-group'>
