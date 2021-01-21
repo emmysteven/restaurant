@@ -1,5 +1,5 @@
 import {Route, Switch } from 'react-router-dom'
-import { Start, Home, About, Contact, Error, Login, Register } from '../pages/index'
+import { Start, Home, About, Contact, Error, Login, Register, AddShop } from '../pages/index'
 import './layout.css'
 
 export const Routes = (
@@ -11,6 +11,7 @@ export const Routes = (
       <Route path='/login' component={Login} />
       <Route path='/contact' component={Contact} />
 
+      <Route path='/add/shop' component={AddShop} />
       <Route path='/register' component={Register} />
       <Route path='/about' component={About} />
 
