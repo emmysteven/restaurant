@@ -26,16 +26,22 @@ namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
     {
         private readonly IMapper _mapper;
         private readonly IShopRepository _shopRepository;
+        private readonly IFileUploadService _fileUploadService;
 
-        public CreateShopHandler(IShopRepository shopRepository, IMapper mapper)
+        public CreateShopHandler( IMapper mapper,
+            IShopRepository shopRepository,
+            IFileUploadService fileUploadService)
         {
-            _shopRepository = shopRepository;
             _mapper = mapper;
+            _shopRepository = shopRepository;
+            _fileUploadService = fileUploadService;
         }
 
         public async Task<Response<int>> Handle(CreateShopCommand request, CancellationToken cancellationToken)
         {
+            var imageFile = _fileUploadService.UploadFile(request.ImageFile);
             var vendor = _mapper.Map<Shop>(request);
+            vendor.ImageName = imageFile;
             await _shopRepository.CreateAsync(vendor);
             return new Response<int>(vendor.Id);
         }
