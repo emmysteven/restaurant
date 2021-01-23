@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -19,7 +18,7 @@ namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
         public string State { get; set; }
         public string LocalGovernmentArea { get; set; }
         public string Address { get; set; }
-        [NotMapped] public IFormFile ImageFile { get; set; }
+        public IFormFile ImageFile { get; set; }
     }
     
     public class CreateShopHandler : IRequestHandler<CreateShopCommand, Response<int>>
