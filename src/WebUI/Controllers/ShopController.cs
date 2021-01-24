@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +36,7 @@ namespace Restaurant.WebUI.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateShopCommand command)
+        public async Task<IActionResult> Create([FromForm] CreateShopCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
