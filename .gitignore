@@ -350,5 +350,6 @@ healthchecksdb
 WebUI/appsettings.json
 .vscode/
 VSIXCore/
+wwwroot/
 .eslintcache
 Restaurant.sln.DotSettings.user
