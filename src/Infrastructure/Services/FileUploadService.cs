@@ -8,7 +8,6 @@ namespace Restaurant.Infrastructure.Services
     public class FileUploadService : IFileUploadService
     {
         private readonly IWebHostEnvironment _environment;
-
         public FileUploadService(IWebHostEnvironment environment)
         {
             _environment = environment;
@@ -16,7 +15,7 @@ namespace Restaurant.Infrastructure.Services
 
         public string UploadFile(IFormFile file)
         {
-            var folderPath = Path.Combine(_environment.WebRootPath, "Images");
+            var folderPath = Path.Combine(_environment.WebRootPath, "images");
 
             if (!Directory.Exists(folderPath))
             {
