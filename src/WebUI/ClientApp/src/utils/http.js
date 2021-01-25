@@ -4,7 +4,7 @@ export const http = axios.create({
   baseURL: 'https://localhost:3000/api',
   crossdomain: true,
   headers: {
-    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Type': 'application/json',
     'Cache-Control': 'no-cache'
   }
 })

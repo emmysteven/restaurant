@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { shopService } from "../../services";
+import { ShopService } from "../../services";
 
 
 export function AddShop () {
@@ -16,7 +16,14 @@ export function AddShop () {
   })
   const [error, setError] = useState(null)
   const [submitted, setSubmitted] = useState(false)
+  const form = useRef(null)
   const history = useHistory()
+
+  const acceptedTypes = [
+    'image/png',
+    'image/jpg',
+    'image/jpeg',
+  ];
 
 
   function handleChange (e) {
@@ -37,14 +44,17 @@ export function AddShop () {
       shop.address &&
       shop.imageFile
     ) {
-      shopService
-        .addShop(shop)
+      ShopService
+        .addShop(form.current)
         .then((response) => {
           if (response.data.error){
             setSubmitted(false)
             return setError(response.data.error)
           }
-          history.push('/start')
+          else {
+            console.log(response)
+            history.push('/start')
+          }
         })
     }
   }
@@ -57,13 +67,13 @@ export function AddShop () {
 
           { error ? <div className="alert alert-danger mb-4"> {error} </div> : '' }
 
-          <form name='form' onSubmit={handleSubmit}>
+          <form ref={form} onSubmit={handleSubmit}>
             <div className='form-group'>
               <label>Name</label>
               <input
                 type='text'
                 name='name'
-                value={shop.name}
+                defaultValue={shop.name}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.name ? ' is-invalid' : '')}
               />
@@ -76,7 +86,7 @@ export function AddShop () {
               <input
                 type='text'
                 name='website'
-                value={shop.website}
+                defaultValue={shop.website}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.website ? ' is-invalid' : '')}
               />
@@ -89,7 +99,7 @@ export function AddShop () {
               <input
                 type='email'
                 name='email'
-                value={shop.email}
+                defaultValue={shop.email}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.email ? ' is-invalid' : '')}
               />
@@ -101,7 +111,7 @@ export function AddShop () {
               <input
                 type='tel'
                 name='phoneNumber'
-                value={shop.phoneNumber}
+                defaultValue={shop.phoneNumber}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.phoneNumber ? ' is-invalid' : '')}
               />
@@ -113,7 +123,7 @@ export function AddShop () {
               <input
                 type='text'
                 name='state'
-                value={shop.state}
+                defaultValue={shop.state}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.state ? ' is-invalid' : '')}
               />
@@ -125,7 +135,7 @@ export function AddShop () {
               <input
                 type='text'
                 name='localGovernmentArea'
-                value={shop.localGovernmentArea}
+                defaultValue={shop.localGovernmentArea}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.localGovernmentArea ? ' is-invalid' : '')}
               />
@@ -133,11 +143,11 @@ export function AddShop () {
             </div>
 
             <div className='form-group'>
-              <label>Password</label>
+              <label>address</label>
               <input
                 type='text'
                 name='address'
-                value={shop.address}
+                defaultValue={shop.address}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.address ? ' is-invalid' : '')}
               />
@@ -149,7 +159,8 @@ export function AddShop () {
               <input
                 type='file'
                 name='imageFile'
-                value={shop.imageFile}
+                accept={acceptedTypes.toString()}
+                defaultValue={shop.imageFile}
                 onChange={handleChange}
                 className={'form-control' + (submitted && !shop.imageFile ? ' is-invalid' : '')}
               />
@@ -159,9 +170,9 @@ export function AddShop () {
             <div className='form-group'>
               <button className='btn btn-primary'>
                 {submitted && <span className='spinner-border spinner-border-sm mr-1' />}
-                Register
+                Add
               </button>
-              <Link to='/login' className='btn btn-link'>Cancel</Link>
+              <Link to='/' className='btn btn-link'>Cancel</Link>
             </div>
           </form>
         </div>
