@@ -63,11 +63,7 @@ namespace Restaurant.WebUI
                 app.UseHsts();
             }
             
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
-                RequestPath = "/Images"
-            });
+            app.UseStaticFiles();
 
             app.UseErrorHandler();
             app.UseHttpsRedirection();
