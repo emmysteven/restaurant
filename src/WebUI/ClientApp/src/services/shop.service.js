@@ -1,7 +1,24 @@
 import { http } from '../utils/index'
 
 const getAllShops = () => {
-  return http.get('shop').then(response => response.data)
+  return http.get('/shop').then(response => response.data)
+}
+
+const addShop = (shop) => {
+  let formData = new FormData(shop)
+  return http.post('/shop', formData, { headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+  .then(response => {
+    return response
+  })
+  .catch(error => {
+    if (error.response) return error.response
+    if (error.request) return error.request
+    else return error.message
+
+  })
 }
 
 const getShopById = () => {}
@@ -14,5 +31,6 @@ export const ShopService = {
   getAllShops,
   getShopById,
   updateShop,
-  deleteShop
+  deleteShop,
+  addShop
 }
