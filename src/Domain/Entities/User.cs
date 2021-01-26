@@ -5,7 +5,7 @@ using Restaurant.Domain.Enums;
 
 namespace Restaurant.Domain.Entities
 {
-    public class User
+    public class User : AuditableEntity
     {
         public User()
         {
@@ -13,8 +13,6 @@ namespace Restaurant.Domain.Entities
             Bookings = new HashSet<Booking>();
             // IsVerified = Verified.HasValue || PasswordReset.HasValue;
         }
-
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -30,8 +28,8 @@ namespace Restaurant.Domain.Entities
         public List<RefreshToken> RefreshTokens { get; set; }
         public DateTime? Verified { get; set; }
         public bool IsVerified => Verified.HasValue || PasswordReset.HasValue;
-        public ICollection<Shop> Shops { get; }
-        public ICollection<Booking> Bookings { get; }
+        public ICollection<Shop> Shops { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
 
         public bool OwnsToken(string token)
         {

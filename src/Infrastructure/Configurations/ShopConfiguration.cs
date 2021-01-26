@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Restaurant.Domain.Entities;
 
 namespace Restaurant.Infrastructure.Configurations
-{ 
+{
     public class ShopConfiguration : IEntityTypeConfiguration<Shop>
     {
         public void Configure(EntityTypeBuilder<Shop> builder)
@@ -19,7 +19,7 @@ namespace Restaurant.Infrastructure.Configurations
             builder.Property(s => s.LocalGovernmentArea).HasMaxLength(20).IsRequired();
 
             builder.Property(s => s.Address).HasMaxLength(50).IsRequired();
-            builder.Property(s => s.ImageName);
+            builder.Property(s => s.ImagePath);
             builder.Property(s => s.Created).ValueGeneratedOnAdd();
             // builder.Property(s => s.Updated).ValueGeneratedOnAddOrUpdate();
 

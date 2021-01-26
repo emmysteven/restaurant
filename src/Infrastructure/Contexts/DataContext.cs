@@ -32,7 +32,7 @@ namespace Restaurant.Infrastructure.Contexts
                 {
                     case EntityState.Added:
                         entry.Entity.Created = _date.NowUtc;
-                        entry.Entity.CreatedBy = _currentUser.UserId;
+                        // entry.Entity.CreatedBy = _currentUser.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModified = _date.NowUtc;

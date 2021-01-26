@@ -38,9 +38,9 @@ namespace Restaurant.Application.UseCases.Shops.Commands.CreateShop
 
         public async Task<Response<int>> Handle(CreateShopCommand request, CancellationToken cancellationToken)
         {
-            var imageFile = _fileUploadService.UploadFile(request.ImageFile);
+            var imagePath = _fileUploadService.UploadFile(request.ImageFile);
             var vendor = _mapper.Map<Shop>(request);
-            vendor.ImageName = imageFile;
+            vendor.ImagePath = imagePath;
             await _shopRepository.CreateAsync(vendor);
             return new Response<int>(vendor.Id);
         }

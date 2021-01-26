@@ -10,7 +10,7 @@ namespace Restaurant.Infrastructure.Configurations
         {
             builder.HasKey(b => b.Id);
 
-            builder.Property(b => b.UserId).IsRequired();
+            // builder.Property(b => b.UserId).IsRequired();
             builder.Property(b => b.ShopId).IsRequired();
 
             builder.Property(b => b.Created).ValueGeneratedOnAdd();
