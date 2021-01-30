@@ -14,7 +14,7 @@ namespace Restaurant.WebUI.Controllers
     [Authorize]
     public class ShopController : BaseController
     {
-        public ShopController(ILogger<BaseController> logger) : base(logger) { }
+        public ShopController(ILogger<ShopController> logger) : base(logger) { }
         
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetAllShopsParameter filter)
