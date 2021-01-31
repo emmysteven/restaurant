@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Restaurant.Application.Common.Interfaces
 {
-    public interface IFileUploadService
+    public interface IFileService
     {
         public string UploadFile(IFormFile file);
     }

@@ -5,10 +5,10 @@ using Restaurant.Application.Common.Interfaces;
 
 namespace Restaurant.Infrastructure.Services
 {
-    public class FileUploadService : IFileUploadService
+    public class FileService : IFileService
     {
         private readonly IWebHostEnvironment _environment;
-        public FileUploadService(IWebHostEnvironment environment)
+        public FileService(IWebHostEnvironment environment)
         {
             _environment = environment;
         }

@@ -42,7 +42,7 @@ namespace Restaurant.Infrastructure
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IEmailService, EmailService>();
-            services.AddTransient<IFileUploadService, FileUploadService>();
+            services.AddTransient<IFileService, FileService>();
             services.AddTransient<IDateService, DateServiceService>();
 
             services.Configure<JWTSettings>(config.GetSection("JWTSettings"));
