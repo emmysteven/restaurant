@@ -1,7 +1,9 @@
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Restaurant.Application;
 using Restaurant.Application.Common.Interfaces;
 using Restaurant.Infrastructure;
@@ -61,7 +63,11 @@ namespace Restaurant.WebUI
                 app.UseHsts();
             }
             
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "images")),
+                RequestPath = "/images"
+            });
 
             app.UseErrorHandler();
             app.UseHttpsRedirection();
@@ -75,7 +81,15 @@ namespace Restaurant.WebUI
             app.UseSerilogRequestLogging();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
-            app.UseSpa(spa => spa.Options.SourcePath = "ClientApp");
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+                if (env.EnvironmentName == "dev")
+                {
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                }
+            });
+
         }
     }
 }
