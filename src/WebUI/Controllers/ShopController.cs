@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,19 @@ namespace Restaurant.WebUI.Controllers
                 PageSize = filter.PageSize,
                 PageNumber = filter.PageNumber
             });
+            var shops = query.Data.Select(x => new GetAllShopsVm
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Email = x.Email,
+                State = x.State,
+                Address = x.Address,
+                Website = x.Website,
+                PhoneNumber = x.PhoneNumber,
+                LocalGovernmentArea = x.LocalGovernmentArea,
+                ImagePath = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{x.ImagePath}"
+            });
+            query.Data = shops;
             return Ok(query);
         }
 
