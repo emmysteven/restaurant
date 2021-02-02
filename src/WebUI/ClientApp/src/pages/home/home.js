@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../utils'
 import { ShopService } from '../../services/shop.service'
-import resto from '../../shop.jpg'
 
 export const Home = () => {
   const { userData } = useContext(UserContext)
@@ -26,7 +25,7 @@ export const Home = () => {
   const list = shops.map(item => (
       <div className='col-md-3 offset-md-0'  key={item.id}>
         <div className='card'>
-          <img className='card-img-top' src={resto} alt='' />
+          <img className='card-img-top' src={item.imagePath} alt='' />
           <div className='card-body'>
             <h5 className='card-title'>Name: {item.name}</h5>
             <p className='card-text'>Website: {item.website}</p>
