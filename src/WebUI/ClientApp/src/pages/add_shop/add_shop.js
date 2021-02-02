@@ -53,7 +53,7 @@ export function AddShop () {
           }
           else {
             console.log(response)
-            history.push('/start')
+            history.push('/home')
           }
         })
     }
