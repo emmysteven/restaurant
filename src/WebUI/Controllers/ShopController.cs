@@ -17,7 +17,7 @@ namespace Restaurant.WebUI.Controllers
     {
         public ShopController(ILogger<ShopController> logger) : base(logger) { }
         
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public async Task<IActionResult> Get([FromQuery] GetAllShopsParameter filter)
         {
             var query = await Mediator.Send(new GetAllShopsQuery
@@ -41,7 +41,7 @@ namespace Restaurant.WebUI.Controllers
             return Ok(query);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), AllowAnonymous]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
             var query = await Mediator.Send(new GetShopByIdQuery(id));
