@@ -1,13 +1,12 @@
 import {Route, Switch } from 'react-router-dom'
-import { Start, Home, About, Contact, Error, Login, Register, AddShop } from '../pages/index'
+import { Home, About, Contact, Error, Login, Register, AddShop } from '../pages/index'
 import './layout.css'
 
 export const Routes = (
   <div className='mt-5'>
     {/* switch to stop matching after match found */}
     <Switch>
-      <Route path={'/'} exact component={Start} />
-      <Route path={'/home'} exact component={Home} />
+      <Route path={['/', '/home']} exact component={Home} />
       <Route path='/login' component={Login} />
       <Route path='/contact' component={Contact} />
 
