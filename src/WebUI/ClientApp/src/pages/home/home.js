@@ -40,21 +40,31 @@ export const Home = () => {
     )
   )
 
+  // return (
+  //   <div>
+  //     {userData.user ? (
+  //       <div className=''>
+  //         <h1 className='mb-4'>Hi {userData.user.firstName}!</h1>
+  //         <div className='card-deck'>
+  //           {list}
+  //         </div>
+  //       </div>
+  //     ) : (
+  //       <div className='col-lg-8 offset-lg-2'>
+  //         <h1>Hi Guest!</h1>
+  //         <p>You&apos;re not logged in with React Hooks!!</p>
+  //       </div>
+  //     )}
+  //   </div>
+  // )
+
   return (
     <div>
-      {userData.user ? (
-        <div className=''>
-          <h1 className='mb-4'>Hi {userData.user.firstName}!</h1>
-          <div className='card-deck'>
-            {list}
-          </div>
+      <div className=''>
+        <div className='card-deck'>
+          {list}
         </div>
-      ) : (
-        <div className='col-lg-8 offset-lg-2'>
-          <h1>Hi Guest!</h1>
-          <p>You&apos;re not logged in with React Hooks!!</p>
-        </div>
-      )}
+      </div>
     </div>
   )
 }
