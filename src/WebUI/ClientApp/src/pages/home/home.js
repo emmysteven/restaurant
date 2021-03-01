@@ -1,10 +1,20 @@
-import { useContext, useState, useEffect } from 'react'
-import { UserContext } from '../../utils'
+import { useState, useEffect } from 'react'
+// import { UserContext } from '../../utils'
 import { ShopService } from '../../services/shop.service'
 
 export const Home = () => {
-  const { userData } = useContext(UserContext)
+  // const { userData } = useContext(UserContext)
   const [shops, setShops] = useState([])
+
+  function deleteShop(id) {
+    ShopService.deleteShop(id)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
 
   useEffect(() => {
     ShopService.getAllShops().then(
@@ -35,6 +45,7 @@ export const Home = () => {
             <p className='card-text'>LGA: {item.localGovernmentArea}</p>
             <p className='card-text'>Address: {item.address}</p>
           </div>
+          <button onClick={() => deleteShop(item.id)} className='btn btn-sm btn-danger'>delete</button>
         </div>
       </div>
     )
