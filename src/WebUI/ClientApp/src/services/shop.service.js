@@ -25,7 +25,17 @@ const getShopById = () => {}
 
 const updateShop = () => {}
 
-const deleteShop = () => {}
+const deleteShop = (id) => {
+  return http.delete(`/shop/${id}`)
+    .then(response => {
+      return response
+    })
+    .catch(error => {
+      if (error.response) return error.response
+      if (error.request) return error.request
+      else return error.message
+    })
+}
 
 export const ShopService = {
   getAllShops,
