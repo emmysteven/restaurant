@@ -16,6 +16,16 @@ export const Home = () => {
       })
   }
 
+  function updateShop(id) {
+    ShopService.updateShop(id)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
+
   useEffect(() => {
     ShopService.getAllShops().then(
       (response) => {
@@ -45,7 +55,8 @@ export const Home = () => {
             <p className='card-text'>LGA: {item.localGovernmentArea}</p>
             <p className='card-text'>Address: {item.address}</p>
           </div>
-          <button onClick={() => deleteShop(item.id)} className='btn btn-sm btn-danger'>delete</button>
+          <button onClick={() => deleteShop(item.id)} className='btn btn-danger'>delete</button>
+          <button onClick={() => updateShop(item.id)} className='btn btn-primary'>update</button>
         </div>
       </div>
     )
