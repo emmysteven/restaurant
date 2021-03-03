@@ -23,7 +23,17 @@ const addShop = (shop) => {
 
 const getShopById = () => {}
 
-const updateShop = () => {}
+const updateShop = (id) => {
+  return http.put(`/shop/${id}`)
+    .then(response => {
+      return response
+    })
+    .catch(error => {
+      if (error.response) return error.response
+      if (error.request) return error.request
+      else return error.message
+    })
+}
 
 const deleteShop = (id) => {
   return http.delete(`/shop/${id}`)
