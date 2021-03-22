@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { ShopService } from "../../services";
+import { ShopService } from "../services";
 
 
 export function AddShop () {
