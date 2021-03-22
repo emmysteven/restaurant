@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { userService } from "../../services";
+import { userService } from "../services";
 
 
 export function Register () {
@@ -33,7 +33,7 @@ export function Register () {
             setSubmitted(false)
             return setError(response.data.error)
           }
-          history.push('/login')
+          history.push('/Tests')
         })
     }
   }

@@ -1,6 +1,6 @@
 import {Route, Switch } from 'react-router-dom'
-import { Home, About, Contact, Error, Login, Register, AddShop } from '../pages/index'
-import './layout.css'
+import { Home, About, Contact, Error, Login, Register, AddShop } from '../pages'
+import './Layout.css'
 
 export const Routes = (
   <div className='mt-5'>

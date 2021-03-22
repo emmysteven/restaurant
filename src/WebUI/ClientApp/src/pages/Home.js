@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 // import { UserContext } from '../../utils'
-import { ShopService } from '../../services/shop.service'
+import { ShopService } from '../services/shop.service'
 
 export const Home = () => {
   // const { userData } = useContext(UserContext)

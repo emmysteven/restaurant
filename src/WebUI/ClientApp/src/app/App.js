@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-// import './app.css';
-import { Header, Footer, Routes } from "../components/index";
+// import './App.css';
+import { Header, Footer, Routes } from "../components";
 import { userService } from '../services/index'
 import { UserContext } from '../utils/index'
 

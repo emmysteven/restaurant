@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link, useHistory } from "react-router-dom";
-import { UserContext } from '../../utils/index'
-import { userService } from '../../services/index'
+import { UserContext } from '../utils'
+import { userService } from '../services'
 
 export const Login = () => {
   const [inputs, setInputs] = useState({ email: '', password: '' })

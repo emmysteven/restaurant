@@ -10,7 +10,7 @@ export const Header = () => {
   function logout() {
     userService.logout();
     setUserData({ token: undefined, user: undefined })
-    history.push('/login')
+    history.push('/Tests')
   }
 
   return(

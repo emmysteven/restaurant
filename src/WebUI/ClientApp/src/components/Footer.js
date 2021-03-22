@@ -1,5 +1,5 @@
 import React from 'react'
-import './layout.css'
+import './Layout.css'
 
 export const Footer = () => (
   <footer className='footer py-3'>
