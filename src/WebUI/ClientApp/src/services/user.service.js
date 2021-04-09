@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
    data = { token: '', refreshToken: '' }
 
    login(email, password) {
-    return http.post('/user/Tests', { email, password })
+    return http.post('/user/login', { email, password })
       .then(response => {
         if (response.data) {
           this.data = response.data
