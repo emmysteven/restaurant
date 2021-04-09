@@ -1,3 +1,5 @@
 export * from './Footer'
 export * from './Header'
 export * from './Routes'
+export * from './SideMenu'
+export * from './index'
