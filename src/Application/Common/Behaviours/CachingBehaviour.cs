@@ -16,7 +16,7 @@ namespace Restaurant.Application.Common.Behaviours
     //     
     // }
     
-    public class CacheInvalidatorPostProcessor<TRequest, TResponse> : IRequestPostProcessor<TRequest, TResponse>
+    public class CacheInvalidatorPostProcessor<TRequest, TResponse> : IRequestPostProcessor<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly ILogger _logger;
         private readonly InvalidateCacheForQueries _queriesPairs;
@@ -51,7 +51,7 @@ namespace Restaurant.Application.Common.Behaviours
         }
     }
 
-    public class CachingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class CachingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly ILogger _logger;
         private ICacheService CacheService { get; }
