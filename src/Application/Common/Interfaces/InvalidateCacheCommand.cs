@@ -1,9 +1,8 @@
 using Restaurant.Application.Settings;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface ICacheInvalidatorPostProcessor
 {
-    public interface ICacheInvalidatorPostProcessor
-    {
-       InvalidateCacheForQueries QueriesList { get; set; }
-    }
+    InvalidateCacheForQueries QueriesList { get; set; }
 }

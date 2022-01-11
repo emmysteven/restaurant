@@ -1,9 +1,8 @@
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface IUserRepository : IBaseRepository<User>
 {
-    public interface IUserRepository : IBaseRepository<User>
-    {
         
-    }
 }

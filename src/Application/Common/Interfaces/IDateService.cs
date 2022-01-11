@@ -1,9 +1,8 @@
 using System;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface IDateService
 {
-    public interface IDateService
-    {
-        DateTime NowUtc { get; }
-    }
+    DateTime NowUtc { get; }
 }

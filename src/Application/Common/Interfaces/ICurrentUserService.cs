@@ -1,8 +1,7 @@
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface ICurrentUserService
 {
-    public interface ICurrentUserService
-    {
-        string UserId { get; }
-        bool IsAuthenticated { get; }
-    }
+    string UserId { get; }
+    bool IsAuthenticated { get; }
 }

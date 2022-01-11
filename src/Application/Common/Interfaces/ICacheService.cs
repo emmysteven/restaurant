@@ -1,13 +1,12 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface ICacheService
 {
-    public interface ICacheService
-    {
-        Task<object> GetAsync(string key);
-        Task SetAsync(string key, object value, TimeSpan expirationTimeFromNow);
-        // public Task RefreshAsync(string key);
-        Task RemoveAsync(string key);
-    }
+    Task<object> GetAsync(string key);
+    Task SetAsync(string key, object value, TimeSpan expirationTimeFromNow);
+    // public Task RefreshAsync(string key);
+    Task RemoveAsync(string key);
 }

@@ -1,10 +1,9 @@
 using System.Threading.Tasks;
 using Restaurant.Application.DTOs.Email;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        Task SendAsync(EmailRequest request);
-    }
+    Task SendAsync(EmailRequest request);
 }

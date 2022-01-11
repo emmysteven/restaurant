@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Http;
 
-namespace Restaurant.Application.Common.Interfaces
+namespace Restaurant.Application.Common.Interfaces;
+
+public interface IFileService
 {
-    public interface IFileService
-    {
-        public string UploadFile(IFormFile file);
-    }
+    public string UploadFile(IFormFile file);
 }
