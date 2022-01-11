@@ -1,6 +1,5 @@
-namespace Restaurant.Application.UseCases.Bookings.Commands.CreateBooking
+namespace Restaurant.Application.UseCases.Bookings.Commands.CreateBooking;
+
+public class CreateBookingValidator
 {
-    public class CreateBookingValidator
-    {
-    }
 }
