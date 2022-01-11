@@ -13,57 +13,57 @@ using Restaurant.Infrastructure.Contexts;
 using Restaurant.Infrastructure.Repositories;
 using Restaurant.Infrastructure.Services; // using Hangfire;
 
-namespace Restaurant.Infrastructure
+namespace Restaurant.Infrastructure;
+
+public static class ServiceExtension
 {
-    public static class ServiceExtension
+    public static void AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
-        public static void AddInfrastructure(this IServiceCollection services, IConfiguration config)
-        {
-            // services.AddDbContext<DataContext>(x =>
-            //     x.UseSqlServer(config.GetConnectionString("db")));
+        // services.AddDbContext<DataContext>(x =>
+        //     x.UseSqlServer(config.GetConnectionString("db")));
             
-            services.AddDbContext<DataContext>(x =>
-                x.UseSqlite(config.GetConnectionString("DevDB")));
+        services.AddDbContext<DataContext>(x =>
+            x.UseSqlite(config.GetConnectionString("DevDB")));
 
 
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = config.GetConnectionString("RedisUrl");
-            });
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = config.GetConnectionString("RedisUrl");
+        });
 
-            services.AddTransient<ICacheService, CacheService>();
+        services.AddTransient<ICacheService, CacheService>();
 
-            // services.AddHangfire(x => x.UseSqlServerStorage(config.GetConnectionString("db")));
-            // services.AddHangfireServer();
+        // services.AddHangfire(x => x.UseSqlServerStorage(config.GetConnectionString("db")));
+        // services.AddHangfireServer();
 
-            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddTransient<IShopRepository, ShopRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+        services.AddTransient<IShopRepository, ShopRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
 
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IEmailService, EmailService>();
-            services.AddTransient<IFileService, FileService>();
-            services.AddTransient<IDateService, DateServiceService>();
+        services.AddTransient<IUserService, UserService>();
+        services.AddTransient<IEmailService, EmailService>();
+        services.AddTransient<IFileService, FileService>();
+        services.AddTransient<IDateService, DateServiceService>();
 
-            services.Configure<JWTSettings>(config.GetSection("JWTSettings"));
-            services.Configure<MailSettings>(config.GetSection("MailSettings"));
+        services.Configure<JWTSettings>(config.GetSection("JWTSettings"));
+        services.Configure<MailSettings>(config.GetSection("MailSettings"));
 
-            services.AddSingleton(x => x.GetRequiredService<IOptions<JWTSettings>>().Value);
-            services.AddSingleton(x => x.GetRequiredService<IOptions<MailSettings>>().Value);
+        services.AddSingleton(x => x.GetRequiredService<IOptions<JWTSettings>>().Value);
+        services.AddSingleton(x => x.GetRequiredService<IOptions<MailSettings>>().Value);
 
-            // services.AddAuthentication(x =>
-            // {
-            //     x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //     x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            // })
-            // .AddCookie(x =>
-            // {
-            //     x.Cookie.HttpOnly = true;
-            //     x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-            //     x.Cookie.SameSite = SameSiteMode.Lax;
-            // });
+        // services.AddAuthentication(x =>
+        // {
+        //     x.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //     x.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        // })
+        // .AddCookie(x =>
+        // {
+        //     x.Cookie.HttpOnly = true;
+        //     x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        //     x.Cookie.SameSite = SameSiteMode.Lax;
+        // });
 
-            services.AddAuthentication(x =>
+        services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -102,6 +102,5 @@ namespace Restaurant.Infrastructure
                     }
                 };
             });
-        }
     }
 }
