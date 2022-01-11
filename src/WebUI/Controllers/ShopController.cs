@@ -10,65 +10,64 @@ using Restaurant.Application.UseCases.Shops.Commands.UpdateShop;
 using Restaurant.Application.UseCases.Shops.Queries.GetAllShops;
 using Restaurant.Application.UseCases.Shops.Queries.GetShopById;
 
-namespace Restaurant.WebUI.Controllers
+namespace Restaurant.WebUI.Controllers;
+
+[Authorize]
+public class ShopController : BaseController
 {
-    [Authorize]
-    public class ShopController : BaseController
-    {
-        public ShopController(ILogger<ShopController> logger) : base(logger) { }
+    public ShopController(ILogger<ShopController> logger) : base(logger) { }
         
-        [HttpGet, AllowAnonymous]
-        public async Task<IActionResult> Get([FromQuery] GetAllShopsParameter filter)
+    [HttpGet, AllowAnonymous]
+    public async Task<IActionResult> Get([FromQuery] GetAllShopsParameter filter)
+    {
+        var query = await Mediator.Send(new GetAllShopsQuery
         {
-            var query = await Mediator.Send(new GetAllShopsQuery
-            {
-                PageSize = filter.PageSize,
-                PageNumber = filter.PageNumber
-            });
-            var shops = query.Data.Select(x => new GetAllShopsVm
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Email = x.Email,
-                State = x.State,
-                Address = x.Address,
-                Website = x.Website,
-                PhoneNumber = x.PhoneNumber,
-                LocalGovernmentArea = x.LocalGovernmentArea,
-                ImagePath = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{x.ImagePath}"
-            });
-            query.Data = shops;
-            return Ok(query);
-        }
+            PageSize = filter.PageSize,
+            PageNumber = filter.PageNumber
+        });
+        var shops = query.Data.Select(x => new GetAllShopsVm
+        {
+            Id = x.Id,
+            Name = x.Name,
+            Email = x.Email,
+            State = x.State,
+            Address = x.Address,
+            Website = x.Website,
+            PhoneNumber = x.PhoneNumber,
+            LocalGovernmentArea = x.LocalGovernmentArea,
+            ImagePath = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{x.ImagePath}"
+        });
+        query.Data = shops;
+        return Ok(query);
+    }
 
-        [HttpGet("{id}"), AllowAnonymous]
-        public async Task<IActionResult> Get([FromRoute] int id)
-        {
-            var query = await Mediator.Send(new GetShopByIdQuery(id));
-            return Ok(query);
-        }
+    [HttpGet("{id}"), AllowAnonymous]
+    public async Task<IActionResult> Get([FromRoute] int id)
+    {
+        var query = await Mediator.Send(new GetShopByIdQuery(id));
+        return Ok(query);
+    }
 
-        // POST api/<controller>
-        [HttpPost]
-        public async Task<IActionResult> Create([FromForm] CreateShopCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
+    // POST api/<controller>
+    [HttpPost]
+    public async Task<IActionResult> Create([FromForm] CreateShopCommand command)
+    {
+        return Ok(await Mediator.Send(command));
+    }
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateShopCommand command)
-        {
-            if (id != command.Id) return BadRequest();
-            return Ok(await Mediator.Send(command));
-        }
+    // PUT api/<controller>/5
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] UpdateShopCommand command)
+    {
+        if (id != command.Id) return BadRequest();
+        return Ok(await Mediator.Send(command));
+    }
 
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var query = await Mediator.Send(new GetShopByIdQuery(id));
-            return Ok(await Mediator.Send(new DeleteShopCommand(query)));
-        }
+    // DELETE api/<controller>/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var query = await Mediator.Send(new GetShopByIdQuery(id));
+        return Ok(await Mediator.Send(new DeleteShopCommand(query)));
     }
 }

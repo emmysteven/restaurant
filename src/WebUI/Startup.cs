@@ -11,85 +11,84 @@ using Restaurant.WebUI.Handlers;
 using Restaurant.WebUI.Services;
 using Serilog;
 
-namespace Restaurant.WebUI
+namespace Restaurant.WebUI;
+
+public class Startup
 {
-    public class Startup
+    public IConfiguration Configuration { get; }
+    public IWebHostEnvironment Environment { get; }
+
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
     {
-        public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment { get; }
+        Configuration = configuration;
+        Environment = environment;
+    }
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddInfrastructure(Configuration);
+        services.AddApplication();
+        services.AddControllers().AddNewtonsoftJson();
+        services.AddCors();
+
+        services.AddRouting(options =>
         {
-            Configuration = configuration;
-            Environment = environment;
-        }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddInfrastructure(Configuration);
-            services.AddApplication();
-            services.AddControllers().AddNewtonsoftJson();
-            services.AddCors();
-
-            services.AddRouting(options =>
-            {
-                options.LowercaseUrls = true;
-                options.LowercaseQueryStrings = true;
-            });
+            options.LowercaseUrls = true;
+            options.LowercaseQueryStrings = true;
+        });
             
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/build";
-            });
-
-            services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
-            services.AddScoped<ICurrentUserService, CurrentUserService>();
-            services.AddHttpContextAccessor();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        services.AddSpaStaticFiles(configuration =>
         {
+            configuration.RootPath = "ClientApp/build";
+        });
+
+        services.AddDatabaseDeveloperPageExceptionFilter();
+        services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+        services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddHttpContextAccessor();
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.EnvironmentName == "dev")
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseMigrationsEndPoint();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
+        }
+            
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "images")),
+            RequestPath = "/images"
+        });
+
+        app.UseErrorHandler();
+        app.UseHttpsRedirection();
+        app.UseSpaStaticFiles();
+        app.UseRouting();
+        app.UseCookiePolicy();
+        app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseSerilogRequestLogging();
+        app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+        app.UseSpa(spa =>
+        {
+            spa.Options.SourcePath = "ClientApp";
             if (env.EnvironmentName == "dev")
             {
-                app.UseDeveloperExceptionPage();
-                app.UseMigrationsEndPoint();
+                spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
-            
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.WebRootPath, "images")),
-                RequestPath = "/images"
-            });
+        });
 
-            app.UseErrorHandler();
-            app.UseHttpsRedirection();
-            app.UseSpaStaticFiles();
-            app.UseRouting();
-            app.UseCookiePolicy();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseSerilogRequestLogging();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
-                if (env.EnvironmentName == "dev")
-                {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                }
-            });
-
-        }
     }
 }
