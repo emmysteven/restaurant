@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace Restaurant.Application.Settings
+namespace Restaurant.Application.Settings;
+
+public class InvalidateCacheForQueries : Dictionary<Type, object>
 {
-    public class InvalidateCacheForQueries : Dictionary<Type, object>
-    {
-    }
 }
