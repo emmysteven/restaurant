@@ -1,8 +1,7 @@
-namespace Restaurant.Application.DTOs.Account
+namespace Restaurant.Application.DTOs.Account;
+
+public class AuthRequest
 {
-    public class AuthRequest
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+    public string Email { get; set; }
+    public string Password { get; set; }
 }

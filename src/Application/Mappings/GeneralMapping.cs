@@ -5,19 +5,18 @@ using Restaurant.Application.UseCases.Shops.Commands.UpdateShop;
 using Restaurant.Application.UseCases.Shops.Queries.GetAllShops;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Application.Mappings
+namespace Restaurant.Application.Mappings;
+
+public class GeneralMapping : Profile
 {
-    public class GeneralMapping : Profile
+    public GeneralMapping()
     {
-        public GeneralMapping()
-        {
-            CreateMap<CreateShopCommand, Shop>();
-            CreateMap<UpdateShopCommand, Shop>();
+        CreateMap<CreateShopCommand, Shop>();
+        CreateMap<UpdateShopCommand, Shop>();
             
-            CreateMap<RegisterRequest, User>();
+        CreateMap<RegisterRequest, User>();
             
-            CreateMap<GetAllShopsQuery, GetAllShopsParameter>();
-            CreateMap<Shop, GetAllShopsVm>().ReverseMap();
-        }
+        CreateMap<GetAllShopsQuery, GetAllShopsParameter>();
+        CreateMap<Shop, GetAllShopsVm>().ReverseMap();
     }
 }
