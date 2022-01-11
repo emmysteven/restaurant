@@ -1,15 +1,14 @@
 using Restaurant.Domain.Common;
 using Restaurant.Domain.Entities;
 
-namespace Restaurant.Domain.Events
+namespace Restaurant.Domain.Events;
+
+public class ShopCreatedEvent : DomainEvent
 {
-    public class ShopCreatedEvent : DomainEvent
+    public ShopCreatedEvent(Shop item)
     {
-        public ShopCreatedEvent(Shop item)
-        {
-            Item = item;
-        }
-        
-        public Shop Item { get; }
+        Item = item;
     }
+        
+    public Shop Item { get; }
 }

@@ -1,8 +1,7 @@
-namespace Restaurant.Domain.Enums
+namespace Restaurant.Domain.Enums;
+
+public enum Roles
 {
-    public enum Roles
-    {
-        Admin,
-        User
-    }
+    Admin,
+    User
 }
