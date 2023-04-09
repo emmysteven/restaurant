@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 namespace Restaurant.Application.Common.Interfaces;
 
 public interface ICacheService

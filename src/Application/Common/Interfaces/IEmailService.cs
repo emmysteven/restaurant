@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Restaurant.Application.DTOs.Email;
 
 namespace Restaurant.Application.Common.Interfaces;

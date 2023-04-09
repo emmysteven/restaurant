@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Restaurant.Application.Common.Wrappers;
 using Restaurant.Application.DTOs.Account;
 

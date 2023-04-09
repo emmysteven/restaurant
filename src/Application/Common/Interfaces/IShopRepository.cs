@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Restaurant.Domain.Entities;
 
 namespace Restaurant.Application.Common.Interfaces;
