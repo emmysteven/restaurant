@@ -1,5 +1,3 @@
-using System;
-
 namespace Restaurant.Application.Common.Exceptions;
 
 public class BadRequestException : Exception
