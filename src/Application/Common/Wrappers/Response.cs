@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Restaurant.Application.Common.Wrappers;
 public class Response<T>
 {
