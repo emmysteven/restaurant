@@ -1,5 +1,3 @@
-using System.Threading;
-using System.Threading.Tasks;
 using FluentValidation;
 using Restaurant.Application.Common.Interfaces;
 

@@ -1,5 +1,3 @@
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Restaurant.Application.Common.Exceptions;
 using Restaurant.Application.Common.Interfaces;
