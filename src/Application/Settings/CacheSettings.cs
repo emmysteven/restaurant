@@ -1,5 +1,3 @@
-using System;
-
 namespace Restaurant.Application.Settings;
 
 public class CacheSettings

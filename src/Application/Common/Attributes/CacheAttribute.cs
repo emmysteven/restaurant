@@ -1,5 +1,3 @@
-using System;
-
 namespace Restaurant.Application.Common.Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]
