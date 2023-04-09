@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <AnalysisLevel>Latest</AnalysisLevel>
+        <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>Restaurant.Application</RootNamespace>
         <AssemblyName>Restaurant.Application</AssemblyName>
     </PropertyGroup>
